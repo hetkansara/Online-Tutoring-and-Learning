@@ -1,13 +1,21 @@
 <?php require_once "includes/header.php"?>
-  <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-      <br><br>
+  <div class="section no-pad-bot  card-style" id="index-banner">
+     <div class="card card-style">
+        <div class="card-image">
+          <img class="responsive-img" src="images/subject.jpg">
+          <h1 class="card-title title-position">Making your future better</h1>
+          <p class="card-title tutor-description">Our mentoring programs are customized to meet the learning needs of each student,
+          whether he or she is falling behind in course or needs assistance progressing his or
+          her grades.</p>
+        </div>
+      </div>
+      <div class="container">
       <h1 class="header center orange-text">Starter Template</h1>
       <div class="row center">
         <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
       </div>
       <div class="row center">
-        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
+        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves- blue-grey">Get Started</a>
       </div>
       <br><br>
 
