@@ -5,10 +5,24 @@
  *
  * Made By MaterializeCSS.com
  */
-
+header, main, footer {
+    padding-left: 300px;
+}
 .icon-block {
-  padding: 0 15px;
+    padding: 0 15px;
 }
+
 .icon-block .material-icons {
-	font-size: inherit;
+    font-size: inherit;
 }
+
+.dropdown-content {
+    top: 65px !important;
+    width: 205.3px !important;
+}
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+        padding-left: 0;
+    }
+}
+
