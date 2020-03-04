@@ -1,5 +1,5 @@
 <?php require_once "../includes/adminHeader.php"?>
-<main>
+<main class="adminmain">
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <br><br>
