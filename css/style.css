@@ -16,7 +16,7 @@ header, main, footer {
     font-size: inherit;
 }
 
-.dropdown-content {
+nav .dropdown-content {
     top: 65px !important;
     width: 205.3px !important;
 }
