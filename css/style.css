@@ -73,7 +73,7 @@ nav .dropdown-content {
 }
 
 .confirmation-btns .datepicker-cancel, .confirmation-btns .datepicker-done {
-    color: #29b6f6;
+    color: orange;
 }
 
 input:not([type]):focus:not([readonly]),
@@ -89,13 +89,19 @@ input[type=tel]:not(.browser-default):focus:not([readonly]),
 input[type=number]:not(.browser-default):focus:not([readonly]),
 input[type=search]:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid #29b6f6;
-    -webkit-box-shadow: 0 1px 0 0 #29b6f6;
-    box-shadow: 0 1px 0 0 #29b6f6;
+    border-bottom: 1px solid orange;
+    -webkit-box-shadow: 0 1px 0 0 orange;
+    box-shadow: 0 1px 0 0 orange;
 }
 
 .input-field .prefix.active {
-    color: #29b6f6;
+    color: orange;
+}
+.btn, .btn-large, .btn-small {
+    background-color: #607d8b;
+}
+.login-card .row{
+    margin-bottom: 0;
 }
 
 /* Developer: Maitri Modi */
@@ -128,15 +134,10 @@ textarea.materialize-textarea:focus:not([readonly]) {
     margin-left:170px !important;
 }
 
-.contact-description, .contact-h1{
-    width:40%;
-    margin-left:50px;
-}
 
 .contact-form{
-    width:50% !important;
-   margin-left:300px !important;
    margin-top:50px;
+   padding: 10px;
 }
 
 .form-title{
@@ -150,6 +151,20 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 
 .contact-submit{
-    margin-left:250px ;
+    margin-left: 10px;
     margin-top:30px;
+}
+
+.contact-basic-padding{
+    padding: 10px;
+}
+.contact-basic-padding p{
+    margin: 0px;
+}
+.contact-basic-padding label{
+    font-size: 14px;
+    font-weight: bold;
+}
+.contact-container fieldset {
+    padding: 20px;
 }

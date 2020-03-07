@@ -62,9 +62,12 @@
                     <label>Role</label>
                   </div> -->
                   <div class="input-field col s12">
-                    <button class="btn waves-effect waves-light orange" type="submit" name="action">Register
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Register
                       <i class="material-icons right">person</i>
                     </button>
+                  </div>
+                  <div class="col s12">
+                  <a href="login.php" class="right">Already Registered? Log in!</a>
                   </div>
               </form>
             </div>

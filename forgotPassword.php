@@ -5,7 +5,7 @@
     <div class="col s12 m12 l6  offset-l3">
         <div class="card login-card">
           <div class="card-content">
-            <span class="card-title">Login</span>
+            <span class="card-title">Forgot Password</span>
             <div class="row">
               <form class="col s12">
                 <div class="row margin-bottom-none">
@@ -15,18 +15,12 @@
                     <label for="icon_prefix">Email / Phone</label>
                   </div>
                   <div class="input-field col s12">
-                    <i class="material-icons prefix">lock</i>
-                    <input id="icon_password" type="password" class="validate">
-                    <label for="icon_password">Password</label>
-                  </div>
-                  <div class="input-field col s12">
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Login
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Send Email
                       <i class="material-icons right">send</i>
                     </button>
                   </div>
                   <div class="input-field col s12">
-                    <a href="forgotPassword.php">Forgot Password?</a>
-                    <a href="register.php" class="right">New Member? Sign Up!</a>
+                    <a href="login.php">Back to Login!</a>
                   </div>
               </form>
             </div>
