@@ -103,6 +103,13 @@ textarea.materialize-textarea:focus:not([readonly]) {
 .login-card .row{
     margin-bottom: 0;
 }
+.material-icons{
+    color: #607d8b;
+}
+.btn .material-icons{
+    color: white;
+}
+
 
 /* Developer: Maitri Modi */
 
@@ -134,9 +141,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
     margin-left:170px !important;
 }
 
-
 .contact-form{
-   margin-top:50px;
    padding: 10px;
 }
 
