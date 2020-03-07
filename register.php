@@ -10,12 +10,12 @@
               <form class="col s12">
                 <div class="row margin-bottom-none">
                   <div class="input-field col s12 m12 l6">
-                    <!-- <i class="material-icons prefix">account_circle</i> -->
+                    <i class="material-icons prefix">account_circle</i>
                     <input id="firstname" type="text" class="validate">
                     <label for="firstname">Firstname</label>
                   </div>
                   <div class="input-field col s12 m12 l6">
-                    <!-- <i class="material-icons prefix">account_circle</i> -->
+                    <i class="material-icons prefix">account_circle</i>
                     <input id="lastname" type="text" class="validate">
                     <label for="lastname">Lastname</label>
                   </div>
