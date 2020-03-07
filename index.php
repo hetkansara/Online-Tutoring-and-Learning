@@ -2,7 +2,7 @@
   <div class="section no-pad-bot  card-style" id="index-banner">
      <div class="card card-style">
         <div class="card-image">
-          <img class="responsive-img" src="images/index.jpg">
+          <img class="responsive-img" src="images/index1.jpg">
           <!--<h1 class="card-title title-position">Making your future better</h1>
           <p class="card-title tutor-description">Our mentoring programs are customized to meet the learning needs of each student,
           whether he or she is falling behind in course or needs assistance progressing his or
