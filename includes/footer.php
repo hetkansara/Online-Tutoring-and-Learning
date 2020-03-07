@@ -2,8 +2,9 @@
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
-                <h5 class="white-text">Company Bio</h5>
-                <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+                <h5 class="white-text">How online tutoring works</h5>
+                <!--<p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+--><p class="grey-text text-lighten-4">Our Tutors offer to assist you to construct the information and certainty required to form a sense of math, with personal consideration and locks in hands-on examples</p>
 
 
             </div>
@@ -29,7 +30,7 @@
     </div>
     <div class="footer-copyright">
         <div class="container">
-            Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+            Made by <a class="orange-text text-lighten-3" href="index.php">Humber Developers</a>
         </div>
     </div>
 </footer>

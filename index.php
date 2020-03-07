@@ -2,20 +2,22 @@
   <div class="section no-pad-bot  card-style" id="index-banner">
      <div class="card card-style">
         <div class="card-image">
-          <img class="responsive-img" src="images/subject.jpg">
-          <h1 class="card-title title-position">Making your future better</h1>
+          <img class="responsive-img" src="images/index.jpg">
+          <!--<h1 class="card-title title-position">Making your future better</h1>
           <p class="card-title tutor-description">Our mentoring programs are customized to meet the learning needs of each student,
           whether he or she is falling behind in course or needs assistance progressing his or
-          her grades.</p>
+          her grades.</p>-->
         </div>
       </div>
       <div class="container">
-      <h1 class="header center orange-text">Starter Template</h1>
+      <h1 class="header center orange-text">Online Tutoring</h1>
       <div class="row center">
-        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+        <h5 class="header col s12 light">Our mentoring programs are customized to meet the learning needs of each student,
+          whether he or she is falling behind in course or needs assistance progressing his or
+          her grades.</h5>
       </div>
       <div class="row center">
-        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves- blue-grey">Get Started</a>
+        <a href="register.php" id="download-button" class="btn-large waves-effect waves- blue-grey">Register now</a>
       </div>
       <br><br>
 
@@ -30,28 +32,28 @@
       <div class="row">
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">Speeds up development</h5>
+            <h2 class="center light-blue-text"><i class="material-icons">note</i></h2>
+            <h5 class="center">Online notes and PDFs</h5>
 
-            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+            <p class="light">Coaching expenses shouldn’t stand in the way of making a difference to reach your potential. At our learning center, we donate families over the nation to get coaching administrations that are worth each penny.</p>
           </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">User Experience Focused</h5>
+            <h2 class="center light-blue-text"><i class="material-icons">desktop_windows</i></h2>
+            <h5 class="center">Instant tutoring</h5>
 
-            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+            <p class="light">We know the costs of raising children add up rapidly. That’s why our learning offers a competitive hourly rate that's steady with professionally prepared supplemental instruction suppliers industry-wide, furthermore available installment options.</p>
           </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
-            <h5 class="center">Easy to work with</h5>
+            <h2 class="center light-blue-text"><i class="material-icons">book</i></h2>
+            <h5 class="center">Best results</h5>
 
-            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+            <p class="light">Our mentoring programs are customized to meet the learning needs of each student, whether he or she is falling behind in course or needs assistance progressing his or her grades. </p>
           </div>
         </div>
       </div>
