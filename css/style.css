@@ -123,3 +123,12 @@ textarea.materialize-textarea:focus:not([readonly]) {
     padding-top: 0px !important;
     margin: 0px !important;
 }
+
+.footer-style{
+    margin-left:170px !important;
+}
+
+.contact-description, h1{
+    width:40%;
+    margin-left:50px;
+}

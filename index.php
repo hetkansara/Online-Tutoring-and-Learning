@@ -32,7 +32,7 @@
       <div class="row">
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">note</i></h2>
+            <h2 class="center orange-text"><i class="material-icons">note</i></h2>
             <h5 class="center">Online notes and PDFs</h5>
 
             <p class="light">Coaching expenses shouldn’t stand in the way of making a difference to reach your potential. At our learning center, we donate families over the nation to get coaching administrations that are worth each penny.</p>
@@ -41,7 +41,7 @@
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">desktop_windows</i></h2>
+            <h2 class="center orange-text"><i class="material-icons">desktop_windows</i></h2>
             <h5 class="center">Instant tutoring</h5>
 
             <p class="light">We know the costs of raising children add up rapidly. That’s why our learning offers a competitive hourly rate that's steady with professionally prepared supplemental instruction suppliers industry-wide, furthermore available installment options.</p>
@@ -50,7 +50,7 @@
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">book</i></h2>
+            <h2 class="center orange-text"><i class="material-icons">book</i></h2>
             <h5 class="center">Best results</h5>
 
             <p class="light">Our mentoring programs are customized to meet the learning needs of each student, whether he or she is falling behind in course or needs assistance progressing his or her grades. </p>
