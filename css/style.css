@@ -14,8 +14,14 @@
     font-size: inherit;
 }
 
+/* Developer: Priyanka Khadilkar */
+
 .adminheader, .adminmain, .adminfooter {
     padding-left: 300px;
+}
+
+.adminfooter{
+    padding-top: 0 !important;
 }
 
 .brand-sidebar {
@@ -114,7 +120,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 /* Developer: Maitri Modi */
 
 .logo-font {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Pacifico', cursive !important;
 }
 
 .title-position {

@@ -19,7 +19,7 @@
         <li><a href="#!"><i class="material-icons">keyboard_tab</i>Logout</a></li>
     </ul>
     <div class="navbar-fixed">
-        <nav class="light-blue lighten-1" role="navigation">
+        <nav class="blue-grey" role="navigation">
             <div class="nav-wrapper">
                 <a id="logo-container" href="#" class="brand-logo logo-font">iTutor</a>
                 <ul class="right hide-on-med-and-down">
@@ -33,7 +33,7 @@
                     <li><a href="#!"><i class="material-icons">face</i>Students</a></li>
                     <li><a href="#!"><i class="material-icons">supervisor_account</i>Tutors</a></li>
                     <li><a href="#!"><i class="material-icons">subject</i>Subjects</a></li>
-                    <li><a href="#!"><i class="material-icons">content_paste</i>Learning Materials</a></li>
+                    <li><a href="#!"><i class="material-icons">note</i>Learning Materials</a></li>
                     <li><a href="#!"><i class="material-icons">work</i>Job Openings</a></li>
                     <li><a href="#!"><i class="material-icons">help_outline</i>FAQs</a></li>
                     <li class="divider"></li>
@@ -48,13 +48,13 @@
 </header>
 <aside>
     <ul id="slide-out" class="sidenav sidenav-fixed">
-        <li class="brand-sidebar light-blue lighten-1">
+        <li class="brand-sidebar blue-grey">
             <a id="logo-container" href="#" class="brand-logo logo-font">iTutor</a>
         </li>
         <li><a href="#!"><i class="material-icons">face</i>Students</a></li>
         <li><a href="#!"><i class="material-icons">supervisor_account</i>Tutors</a></li>
         <li><a href="#!"><i class="material-icons">subject</i>Subjects</a></li>
-        <li><a href="#!"><i class="material-icons">content_paste</i>Learning Materials</a></li>
+        <li><a href="#!"><i class="material-icons">note</i>Learning Materials</a></li>
         <li><a href="#!"><i class="material-icons">work</i>Job Openings</a></li>
         <li><a href="#!"><i class="material-icons">help_outline</i>FAQs</a></li>
     </ul>

@@ -14,7 +14,7 @@
 </head>
 <body>
 <nav class="blue-grey" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo logo-font">iTutor</a>
+    <div class="nav-wrapper container"><a id="logo-container" href="index.php" class="brand-logo logo-font">iTutor</a>
         <ul class="right hide-on-med-and-down">
             <li><a href="index.php">Home</a></li>
             <li><a href="contact.php">Contact</a></li>

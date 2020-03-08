@@ -12,8 +12,9 @@
                 <h5 class="white-text ">iTutor</h5>
                 <ul>
                     <li><a class="white-text" href="index.php">Home</a></li>
-                    <li><a class="white-text" href="#!">Contact</a></li>
+                    <li><a class="white-text" href="contact.php">Contact</a></li>
                     <li><a class="white-text" href="login.php">Login</a></li>
+                    <li><a class="white-text" href="register.php">Register</a></li>
                 </ul>
             </div>
         </div>
