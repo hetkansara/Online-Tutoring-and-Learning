@@ -115,7 +115,15 @@ textarea.materialize-textarea:focus:not([readonly]) {
 .btn .material-icons{
     color: white;
 }
-
+.small-text{
+    font-size: 1em;
+}
+.search-box{
+    border: 1px solid lightgrey !important;
+}
+.serach-label{
+    padding-left: 7px !important;
+}
 
 /* Developer: Maitri Modi */
 
