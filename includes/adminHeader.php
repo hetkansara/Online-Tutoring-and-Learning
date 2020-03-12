@@ -13,8 +13,8 @@
 <body>
 <header>
     <ul id="dropdown1" class="dropdown-content">
-        <li><a href="#!"><i class="material-icons">person_outline</i>Profile</a></li>
-        <li><a href="#!"><i class="material-icons">security</i>Change Password</a></li>
+        <li><a href="../admin/myProfile.php"><i class="material-icons">person_outline</i>Profile</a></li>
+        <li><a href="../admin/changePassword.php"><i class="material-icons">security</i>Change Password</a></li>
         <li class="divider"></li>
         <li><a href="#!"><i class="material-icons">keyboard_tab</i>Logout</a></li>
     </ul>
