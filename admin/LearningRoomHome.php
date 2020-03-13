@@ -3,8 +3,8 @@
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <br><br>
-		<a href="addLearningRoom.php">Add More Room</a><br>
-		<a href="editLearningRoom.php">Manage Rooms</a><br>
+		<a href="learningRoomAdd.php">Add More Room</a><br>
+		<a href="learningRoomEdit.php">Manage Rooms</a><br>
 		<a href="listRoom.php">List of Rooms</a><br>
         <h1 class="header center orange-text">Starter Template</h1>
         <div class="row center">
