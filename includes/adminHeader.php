@@ -38,7 +38,7 @@
                     <li><a href="#!"><i class="material-icons">work</i>Job Openings</a></li>
                     <li><a href="#!"><i class="material-icons">help_outline</i>FAQs</a></li>
                     <li><a href="#!"><i class="material-icons">contact_mail</i>Contact Us</a></li>
-                    <li><a href="#!"><i class="material-icons">content_copy</i>Website Content</a></li>
+                    <li><a href="webContent.php"><i class="material-icons">content_copy</i>Website Content</a></li>
                     <li class="divider"></li>
                     <li><a href="#!"><i class="material-icons">person_outline</i>Profile</a></li>
                     <li><a href="#!"><i class="material-icons">security</i>Change Password</a></li>
@@ -62,6 +62,6 @@
         <li><a href="#!"><i class="material-icons">work</i>Job Openings</a></li>
         <li><a href="#!"><i class="material-icons">help_outline</i>FAQs</a></li>
         <li><a href="#!"><i class="material-icons">contact_mail</i>Contact Us</a></li>
-        <li><a href="#!"><i class="material-icons">content_copy</i>Website Content</a></li>
+        <li><a href="webContent.php"><i class="material-icons">content_copy</i>Website Content</a></li>
     </ul>
 </aside>
