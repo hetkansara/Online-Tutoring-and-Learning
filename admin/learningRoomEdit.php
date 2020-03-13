@@ -12,7 +12,6 @@
                                         <div class="row margin-bottom-none">
                                           
                                             <div class="input-field col s12">
-                                                <i class="material-icons prefix">room</i>
                                                 <input id="roomNo" type="text" value="R01" class="validate">
                                                 <label for="roomNo">Room No</label>
                                             </div>
