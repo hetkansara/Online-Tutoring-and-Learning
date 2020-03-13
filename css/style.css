@@ -31,6 +31,10 @@
 
 }
 
+.floatright{
+    float : right;
+}
+
 .brand-sidebar a {
     color: white !important;
     font-size: 24px !important;
