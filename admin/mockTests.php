@@ -119,18 +119,27 @@
           <div class="col s12">
             <div class="card">
               <div class="card-content">
-                <span class="card-title">What is your name?</span>
+                <span class="card-title">How to create a variable in PHP? <a href=""><i class=" material-icons">create</i></a> <a href=""><i class="material-icons right">delete</i></a></span>
                 <ol type="A">
-                  <li>Het Kansara</li>
-                  <li>Shubham Patel</li>
-                  <li>Maitri Modi</li>
-                  <li>Kshitija Patel</li>
-                  <li>Priyanka Khadilkar</li>
+                  <li>string myVar = "myvar"; <a href=""><i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
+                  <li>let myVar = "myvar"; <i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
+                  <li>var myVar = "myvar"; <i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
+                  <li>$myVar = "myvar"; <i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
                 </ol>
               </div>
               <div class="card-action">
-                <a href="#" class="small-text">Edit</a>
-                <a href="#" class="small-text">Delete</a>
+                <form>
+                  <div class="row">
+                    <div class="input-field col s12 m12 l8">
+                      <input id="option" type="text" class="validate">
+                      <label for="option" class="serach-label">Enter Option...</label>
+                    </div>
+                    <div class="input-field col s12 m12 l4">
+                      <button class="btn waves-effect waves-light" type="submit" name="action">Add Option
+                      </button>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -138,18 +147,27 @@
           <div class="col s12">
             <div class="card">
               <div class="card-content">
-                <span class="card-title">What is your name?</span>
+                <span class="card-title">How to create a variable in PHP? <a href=""><i class="material-icons">create</i></a> <a href=""><i class="material-icons right">delete</i></a></span>
                 <ol type="A">
-                  <li>Het Kansara</li>
-                  <li>Shubham Patel</li>
-                  <li>Maitri Modi</li>
-                  <li>Kshitija Patel</li>
-                  <li>Priyanka Khadilkar</li>
+                  <li>string myVar = "myvar"; <a href=""><i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
+                  <li>let myVar = "myvar"; <i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
+                  <li>var myVar = "myvar"; <i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
+                  <li>$myVar = "myvar"; <i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
                 </ol>
               </div>
               <div class="card-action">
-                <a href="#" class="small-text">Edit</a>
-                <a href="#" class="small-text">Delete</a>
+                <form>
+                  <div class="row">
+                    <div class="input-field col s12 m12 l8">
+                      <input id="option" type="text" class="validate">
+                      <label for="option" class="serach-label">Enter Option...</label>
+                    </div>
+                    <div class="input-field col s12 m12 l4">
+                      <button class="btn waves-effect waves-light" type="submit" name="action">Add Option
+                      </button>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -157,21 +175,31 @@
           <div class="col s12">
             <div class="card">
               <div class="card-content">
-                <span class="card-title">What is your name?</span>
+                <span class="card-title">How to create a variable in PHP? <a href=""><i class="material-icons">create</i></a> <a href=""><i class="material-icons right">delete</i></a></span>
                 <ol type="A">
-                  <li>Het Kansara</li>
-                  <li>Shubham Patel</li>
-                  <li>Maitri Modi</li>
-                  <li>Kshitija Patel</li>
-                  <li>Priyanka Khadilkar</li>
+                  <li>string myVar = "myvar"; <a href=""><i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
+                  <li>let myVar = "myvar"; <i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
+                  <li>var myVar = "myvar"; <i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
+                  <li>$myVar = "myvar"; <i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
                 </ol>
               </div>
               <div class="card-action">
-                <a href="#" class="small-text">Edit</a>
-                <a href="#" class="small-text">Delete</a>
+                <form>
+                  <div class="row">
+                    <div class="input-field col s12 m12 l8">
+                      <input id="option" type="text" class="validate">
+                      <label for="option" class="serach-label">Enter Option...</label>
+                    </div>
+                    <div class="input-field col s12 m12 l4">
+                      <button class="btn waves-effect waves-light" type="submit" name="action">Add Option
+                      </button>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
+          
         </div>
       </div>
     </div>
