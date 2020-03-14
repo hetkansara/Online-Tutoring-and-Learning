@@ -30,7 +30,7 @@
                 </ul>
 
                 <ul id="nav-mobile" class="sidenav admin-mobilemenu">
-                    <li><a href="listUsers.php"><i class="material-icons">supervisor_account</i>Users</a></li>  
+                    <li><a href="listUsers.php"><i class="material-icons">supervisor_account</i>Users</a></li>
                     <li><a href="listSubjects.php"><i class="material-icons">subject</i>Subjects</a></li>
                     <li><a href="learningMaterials.php"><i class="material-icons">note</i>Learning Materials</a></li>
                     <li><a href="LearningRoomList.php"><i class="material-icons">business</i>Learning Materials</a></li>
@@ -44,7 +44,7 @@
                     <li><a href="#!"><i class="material-icons">security</i>Change Password</a></li>
                     <li><a href="#!"><i class="material-icons">keyboard_tab</i>Logout</a></li>
                 </ul>
-                <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons mobileHamburger">menu</i></a>
             </div>
         </nav>
     </div>
@@ -54,7 +54,6 @@
         <li class="brand-sidebar blue-grey">
             <a id="logo-container" href="#" class="brand-logo logo-font">iTutor</a>
         </li>
-        
         <li><a href="listUsers.php"><i class="material-icons">supervisor_account</i>Users</a></li>
         <li><a href="listSubjects.php"><i class="material-icons">subject</i>Subjects</a></li>
         <li><a href="../admin/learningMaterials.php"><i class="material-icons">note</i>Learning Materials</a></li>
@@ -62,8 +61,7 @@
         <li><a href="mockTests.php"><i class="material-icons">assignment</i>Mock Tests</a></li>
         <li><a href="../admin/jobOpenings.php"><i class="material-icons">work</i>Job Openings</a></li>
         <li><a href="faqList.php"><i class="material-icons">help_outline</i>FAQs</a></li>
-        <li><a href="#!"><i class="material-icons">contact_mail</i>Contact Us</a></li>
-        <li><a href="webContent.php"><i class="material-icons">content_copy</i>Website Content</a></li>
         <li><a href="updateContact.php"><i class="material-icons">contact_mail</i>Contact Us</a></li>
+        <li><a href="webContent.php"><i class="material-icons">content_copy</i>Website Content</a></li>
     </ul>
 </aside>
