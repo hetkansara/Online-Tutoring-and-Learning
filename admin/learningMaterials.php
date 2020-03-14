@@ -1,5 +1,5 @@
 <?php require_once "../includes/adminHeader.php" ?>
-    <main class="adminmain admin-mock-tests">
+    <main class="adminmain">
         <div class="section no-pad-bot" id="index-banner">
             <div class="row">
                 <div class="col s10 m6 l12">
