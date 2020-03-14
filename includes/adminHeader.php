@@ -55,14 +55,15 @@
         <li class="brand-sidebar blue-grey">
             <a id="logo-container" href="#" class="brand-logo logo-font">iTutor</a>
         </li>
-        <li><a href="#!"><i class="material-icons">face</i>Students</a></li>
-        <li><a href="#!"><i class="material-icons">supervisor_account</i>Tutors</a></li>
+        
+        <li><a href="userList.php"><i class="material-icons">supervisor_account</i>Users</a></li>
         <li><a href="listSubjects.php"><i class="material-icons">subject</i>Subjects</a></li>
         <li><a href="../admin/learningMaterials.php"><i class="material-icons">note</i>Learning Materials</a></li>
         <li><a href="LearningRoomList.php"><i class="material-icons">business</i>Learning Places</a></li>
         <li><a href="mockTests.php"><i class="material-icons">assignment</i>Mock Tests</a></li>
         <li><a href="../admin/jobOpenings.php"><i class="material-icons">work</i>Job Openings</a></li>
-        <li><a href="#!"><i class="material-icons">help_outline</i>FAQs</a></li>
+        <li><a href="faqList.php"><i class="material-icons">help_outline</i>FAQs</a></li>
+        <li><a href="#!"><i class="material-icons">contact_mail</i>Contact Us</a></li>
         <li><a href="webContent.php"><i class="material-icons">content_copy</i>Website Content</a></li>
         <li><a href="updateContact.php"><i class="material-icons">contact_mail</i>Contact Us</a></li>
     </ul>
