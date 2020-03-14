@@ -30,8 +30,7 @@
                 </ul>
 
                 <ul id="nav-mobile" class="sidenav admin-mobilemenu">
-                    <li><a href="#!"><i class="material-icons">face</i>Students</a></li>
-                    <li><a href="#!"><i class="material-icons">supervisor_account</i>Tutors</a></li>
+                    <li><a href="listUsers.php"><i class="material-icons">supervisor_account</i>Users</a></li>  
                     <li><a href="listSubjects.php"><i class="material-icons">subject</i>Subjects</a></li>
                     <li><a href="learningMaterials.php"><i class="material-icons">note</i>Learning Materials</a></li>
                     <li><a href="LearningRoomList.php"><i class="material-icons">business</i>Learning Materials</a></li>
@@ -56,7 +55,7 @@
             <a id="logo-container" href="#" class="brand-logo logo-font">iTutor</a>
         </li>
         
-        <li><a href="userList.php"><i class="material-icons">supervisor_account</i>Users</a></li>
+        <li><a href="listUsers.php"><i class="material-icons">supervisor_account</i>Users</a></li>
         <li><a href="listSubjects.php"><i class="material-icons">subject</i>Subjects</a></li>
         <li><a href="../admin/learningMaterials.php"><i class="material-icons">note</i>Learning Materials</a></li>
         <li><a href="LearningRoomList.php"><i class="material-icons">business</i>Learning Places</a></li>

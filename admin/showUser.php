@@ -34,6 +34,9 @@
                   <section><strong>Gender:</strong></section>
                   <section>Male</section>
                 </div>
+                <div>
+                            <a class="waves-effect waves-light btn add-contact-btn " href="listUsers.php">Back</a>
+                        </div>
               </div>
             </div>
           </div>

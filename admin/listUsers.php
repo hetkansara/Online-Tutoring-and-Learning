@@ -24,7 +24,7 @@
                         <div class="card">
                             <div class="card-content">
                                 <div class="direction-top">
-                                    <a title="Add Leaning Material" href="learningMaterialAdd.php" class="btn-floating btn-large green floatright">
+                                    <a title="Add Leaning Material" href="addUser.php" class="btn-floating btn-large green floatright">
                                         <i class="large material-icons">add</i>
                                     </a>
                                 </div>
@@ -39,11 +39,11 @@
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <td><a href="userShow.php">Marks Smith</a></td>
+                                        <td><a href="showUser.php">Marks Smith</a></td>
                                         <td>marksmith@gmail.com</td>
                                         <td>(+1)555-555-5555</td>
                                         <td>
-                                            <a href=""><i class="material-icons blue-text">create</i></a>
+                                            <a href="updateUser.php"><i class="material-icons blue-text">create</i></a>
                                             <a href=""><i class="material-icons red-text">delete</i></a>
                                         </td>
                                     </tr>
@@ -52,7 +52,7 @@
                                         <td>marksmith@gmail.com</td>
                                         <td>(+1)555-555-5555</td>
                                         <td>
-                                            <a href=""><i class="material-icons blue-text">create</i></a>
+                                            <a href="updateUser.php"><i class="material-icons blue-text">create</i></a>
                                             <a href=""><i class="material-icons red-text">delete</i></a>
                                         </td>
                                     </tr>
@@ -61,7 +61,7 @@
                                         <td>marksmith@gmail.com</td>
                                         <td>(+1)555-555-5555</td>
                                         <td>
-                                            <a href=""><i class="material-icons blue-text">create</i></a>
+                                            <a href="updateUser.php"><i class="material-icons blue-text">create</i></a>
                                             <a href=""><i class="material-icons red-text">delete</i></a>
                                         </td>
                                     </tr>
@@ -70,7 +70,7 @@
                                         <td>marksmith@gmail.com</td>
                                         <td>(+1)555-555-5555</td>
                                         <td>
-                                            <a href=""><i class="material-icons blue-text">create</i></a>
+                                            <a href="updateUser.php"><i class="material-icons blue-text">create</i></a>
                                             <a href=""><i class="material-icons red-text">delete</i></a>
                                         </td>
                                     </tr>
@@ -79,7 +79,7 @@
                                         <td>marksmith@gmail.com</td>
                                         <td>(+1)555-555-5555</td>
                                         <td>
-                                            <a href=""><i class="material-icons blue-text">create</i></a>
+                                            <a href="updateUser.php"><i class="material-icons blue-text">create</i></a>
                                             <a href=""><i class="material-icons red-text">delete</i></a>
                                         </td>
                                     </tr>
@@ -88,7 +88,7 @@
                                         <td>marksmith@gmail.com</td>
                                         <td>(+1)555-555-5555</td>
                                         <td>
-                                            <a href=""><i class="material-icons blue-text">create</i></a>
+                                            <a href="updateUser.php"><i class="material-icons blue-text">create</i></a>
                                             <a href=""><i class="material-icons red-text">delete</i></a>
                                         </td>
                                     </tr>
@@ -97,7 +97,7 @@
                                         <td>marksmith@gmail.com</td>
                                         <td>(+1)555-555-5555</td>
                                         <td>
-                                            <a href=""><i class="material-icons blue-text">create</i></a>
+                                            <a href="updateUser.php"><i class="material-icons blue-text">create</i></a>
                                             <a href=""><i class="material-icons red-text">delete</i></a>
                                         </td>
                                     </tr>
