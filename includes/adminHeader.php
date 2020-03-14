@@ -32,14 +32,14 @@
                 <ul id="nav-mobile" class="sidenav admin-mobilemenu">
                     <li><a href="#!"><i class="material-icons">face</i>Students</a></li>
                     <li><a href="#!"><i class="material-icons">supervisor_account</i>Tutors</a></li>
-                    <li><a href="#!"><i class="material-icons">subject</i>Subjects</a></li>
+                    <li><a href="listSubjects.php"><i class="material-icons">subject</i>Subjects</a></li>
                     <li><a href="learningMaterials.php"><i class="material-icons">note</i>Learning Materials</a></li>
                     <li><a href="LearningRoomList.php"><i class="material-icons">business</i>Learning Materials</a></li>
                     <li><a href="mockTests.php"><i class="material-icons">assignment</i>Mock Tests</a></li>
                     <li><a href="#!"><i class="material-icons">work</i>Job Openings</a></li>
                     <li><a href="#!"><i class="material-icons">help_outline</i>FAQs</a></li>
-                    <li><a href="#!"><i class="material-icons">contact_mail</i>Contact Us</a></li>
                     <li><a href="webContent.php"><i class="material-icons">content_copy</i>Website Content</a></li>
+                    <li><a href="updateContact.php"><i class="material-icons">contact_mail</i>Contact Us</a></li>
                     <li class="divider"></li>
                     <li><a href="#!"><i class="material-icons">person_outline</i>Profile</a></li>
                     <li><a href="#!"><i class="material-icons">security</i>Change Password</a></li>
@@ -57,13 +57,13 @@
         </li>
         <li><a href="#!"><i class="material-icons">face</i>Students</a></li>
         <li><a href="#!"><i class="material-icons">supervisor_account</i>Tutors</a></li>
-        <li><a href="#!"><i class="material-icons">subject</i>Subjects</a></li>
+        <li><a href="listSubjects.php"><i class="material-icons">subject</i>Subjects</a></li>
         <li><a href="learningMaterials.php"><i class="material-icons">note</i>Learning Materials</a></li>
         <li><a href="LearningRoomList.php"><i class="material-icons">business</i>Learning Places</a></li>
         <li><a href="mockTests.php"><i class="material-icons">assignment</i>Mock Tests</a></li>
         <li><a href="#!"><i class="material-icons">work</i>Job Openings</a></li>
         <li><a href="#!"><i class="material-icons">help_outline</i>FAQs</a></li>
-        <li><a href="#!"><i class="material-icons">contact_mail</i>Contact Us</a></li>
         <li><a href="webContent.php"><i class="material-icons">content_copy</i>Website Content</a></li>
+        <li><a href="updateContact.php"><i class="material-icons">contact_mail</i>Contact Us</a></li>
     </ul>
 </aside>
