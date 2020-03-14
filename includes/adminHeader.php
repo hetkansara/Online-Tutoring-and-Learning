@@ -54,7 +54,7 @@
         <li class="brand-sidebar blue-grey">
             <a id="logo-container" href="#" class="brand-logo logo-font">iTutor</a>
         </li>
-        <li><a href="userList.php"><i class="material-icons">supervisor_account</i>Users</a></li>
+        <li><a href="listUsers.php"><i class="material-icons">supervisor_account</i>Users</a></li>
         <li><a href="listSubjects.php"><i class="material-icons">subject</i>Subjects</a></li>
         <li><a href="../admin/learningMaterials.php"><i class="material-icons">note</i>Learning Materials</a></li>
         <li><a href="LearningRoomList.php"><i class="material-icons">business</i>Learning Places</a></li>
