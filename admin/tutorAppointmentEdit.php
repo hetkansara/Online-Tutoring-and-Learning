@@ -1,17 +1,4 @@
 <?php require_once "../includes/adminHeader.php" ?>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.datepicker');
-    var instances = M.Datepicker.init(elems, options);
-  });
-
-  // Or with jQuery
-
-  $(document).ready(function(){
-    $('.datepicker').datepicker();
-  });
-     
-</script>
     <main>
         <div class="container">
             <div class="section">
@@ -19,11 +6,10 @@
                     <div class="col s12 m12 l8  offset-l2">
                         <div class="card">
                             <div class="card-content">
-                            <span class="card-title">Tutor appointment</span>
-                            <div class="row">
+                                <span class="card-title">Edit Appointment</span>
+                                <div class="row">
                                     <form class="col s12">
-									
-									<div class="input-field col s12 m12 l12">
+                                        <div class="input-field col s12 m12 l12">
 										<select class="browser-default">
 										<!--<i class="material-icons prefix">person</i>-->
 											<option value="" disabled selected>Select Tutor</option>
@@ -71,15 +57,14 @@
                                            
                                             <div class="input-field col s12">
                                                 <button class="btn waves-effect waves-light" type="submit"
-                                                        name="action">Make Appointment
+                                                        name="action">Update Appointment
                                                 </button>
                                                 <button class="btn waves-effect waves-light" type="submit"
                                                         name="action">Clear
                                                 </button>
                                             </div>
                                     </form>
-                                <!--</div>-->
-                            </div>
+										
                         </div>
                     </div>
                 </div>

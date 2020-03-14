@@ -20,7 +20,7 @@
     padding-left: 300px;
 }
 
-.adminfooter{
+.adminfooter {
     padding-top: 0 !important;
 }
 
@@ -31,8 +31,12 @@
 
 }
 
-.floatright{
-    float : right;
+.floatright {
+    float: right;
+}
+
+.marginleft14 {
+    margin-left: 14px;
 }
 
 .brand-sidebar a {
@@ -107,25 +111,32 @@ textarea.materialize-textarea:focus:not([readonly]) {
 .input-field .prefix.active {
     color: orange;
 }
+
 .btn, .btn-large, .btn-small {
     background-color: #607d8b;
 }
-.login-card .row{
+
+.login-card .row {
     margin-bottom: 0;
 }
-.material-icons{
+
+.material-icons {
     color: #607d8b;
 }
-.btn .material-icons{
+
+.btn .material-icons {
     color: white;
 }
-.small-text{
+
+.small-text {
     font-size: 1em;
 }
-.search-box{
+
+.search-box {
     border: 1px solid lightgrey !important;
 }
-.serach-label{
+
+.serach-label {
     padding-left: 7px !important;
 }
 
@@ -155,39 +166,42 @@ textarea.materialize-textarea:focus:not([readonly]) {
     margin: 0px !important;
 }
 
-.footer-style{
-    margin-left:170px !important;
+.footer-style {
+    margin-left: 170px !important;
 }
 
-.contact-form{
-   padding: 10px;
-}
-
-.form-title{
-    font-size: 30px;
-    margin:0;
-    margin-left:60px;
-}
-
-.contact-message{
-    width:100% !important;
-}
-
-.contact-submit{
-    margin-left: 10px;
-    margin-top:30px;
-}
-
-.contact-basic-padding{
+.contact-form {
     padding: 10px;
 }
-.contact-basic-padding p{
+
+.form-title {
+    font-size: 30px;
+    margin: 0;
+    margin-left: 60px;
+}
+
+.contact-message {
+    width: 100% !important;
+}
+
+.contact-submit {
+    margin-left: 10px;
+    margin-top: 30px;
+}
+
+.contact-basic-padding {
+    padding: 10px;
+}
+
+.contact-basic-padding p {
     margin: 0px;
 }
-.contact-basic-padding label{
+
+.contact-basic-padding label {
     font-size: 14px;
     font-weight: bold;
 }
+
 .contact-container fieldset {
     padding: 20px;
 }

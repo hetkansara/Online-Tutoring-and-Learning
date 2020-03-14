@@ -6,24 +6,26 @@
                     <div class="col s12 m12 l8  offset-l2">
                         <div class="card">
                             <div class="card-content">
-                                <span class="card-title">Add Job Post</span>
+                                <span class="card-title">Add Schedule</span>
                                 <div class="row">
                                     <form class="col s12">
                                         <div class="row margin-bottom-none">
+                                          
                                             <div class="input-field col s12">
-                                                <input id="title" type="text" class="validate">
-                                                <label for="password">Title</label>
+                                                <input id="startTime" type="time" class="validate">
+                                                <label for="startTime">Start Time</label>
                                             </div>
-                                            <div class="input-field col s12">
-                                                <textarea id="textarea2" class="validate materialize-textarea" data-length="120"></textarea>
-                                                <label for="password">Description</label>
+											<div class="input-field col s12">
+                                                <input id="endTime" type="time" class="validate">
+                                                <label for="endTime">End Time</label>
                                             </div>
+                                       
                                             <div class="input-field col s12">
                                                 <button class="btn waves-effect waves-light" type="submit"
-                                                        name="action">Submit
+                                                        name="action">Add Schedule
                                                 </button>
                                                 <button class="btn waves-effect waves-light" type="submit"
-                                                        name="action">Back to List
+                                                        name="action">Clear
                                                 </button>
                                             </div>
                                     </form>
