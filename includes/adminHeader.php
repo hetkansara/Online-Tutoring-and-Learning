@@ -30,7 +30,7 @@
                 </ul>
 
                 <ul id="nav-mobile" class="sidenav admin-mobilemenu">
-                    <li><a href="listUsers.php"><i class="material-icons">supervisor_account</i>Users</a></li>  
+                    <li><a href="listUsers.php"><i class="material-icons">supervisor_account</i>Users</a></li>
                     <li><a href="listSubjects.php"><i class="material-icons">subject</i>Subjects</a></li>
                     <li><a href="learningMaterials.php"><i class="material-icons">note</i>Learning Materials</a></li>
                     <li><a href="LearningRoomList.php"><i class="material-icons">business</i>Learning Materials</a></li>
@@ -44,7 +44,7 @@
                     <li><a href="#!"><i class="material-icons">security</i>Change Password</a></li>
                     <li><a href="#!"><i class="material-icons">keyboard_tab</i>Logout</a></li>
                 </ul>
-                <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons mobileHamburger">menu</i></a>
             </div>
         </nav>
     </div>
@@ -54,8 +54,7 @@
         <li class="brand-sidebar blue-grey">
             <a id="logo-container" href="#" class="brand-logo logo-font">iTutor</a>
         </li>
-        
-        <li><a href="listUsers.php"><i class="material-icons">supervisor_account</i>Users</a></li>
+        <li><a href="userList.php"><i class="material-icons">supervisor_account</i>Users</a></li>
         <li><a href="listSubjects.php"><i class="material-icons">subject</i>Subjects</a></li>
         <li><a href="../admin/learningMaterials.php"><i class="material-icons">note</i>Learning Materials</a></li>
         <li><a href="LearningRoomList.php"><i class="material-icons">business</i>Learning Places</a></li>

@@ -35,6 +35,7 @@
     float: right;
 }
 
+
 .marginleft14 {
     margin-left: 14px;
 }
@@ -291,6 +292,6 @@ textarea.materialize-textarea:focus:not([readonly]) {
     margin-bottom:22px !important;
 }
 
-.sub-del-icon{
-
+.mobileHamburger{
+    color: white;
 }

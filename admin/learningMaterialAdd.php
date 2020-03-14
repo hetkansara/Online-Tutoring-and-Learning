@@ -16,7 +16,7 @@
                                             </div>
                                             <div class="file-field input-field col s12">
                                                 <div class="btn">
-                                                    <span>Upload Learning Material</span>
+                                                    <span>Upload</span>
                                                     <input type="file">
                                                 </div>
                                                 <div class="file-path-wrapper">
