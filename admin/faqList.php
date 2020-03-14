@@ -9,7 +9,7 @@
         <form>
           <div class="input-field col s12 m12 l4">
             <input id="first_name" type="text" class="validate search-box">
-            <label for="first_name" class="serach-label">Search users...</label>
+            <label for="first_name" class="serach-label">Search faq...</label>
           </div>
 
           <div class="input-field col s12 m12 l2">
@@ -28,24 +28,45 @@
                   <i class="large material-icons">add</i>
                 </a>
               </div>
-            <div>
-              <div class="section" >
-                
-                  <h5>Question 1</h5>
-                  <p>Answer 1</p>
-                  
+              <div>
+                <div class="section">
+                  <div>
+                    <h5>Question 1</h5>
+                    <p class="small-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum....</p>
+                  </div>
+                  <div class="faqActions">
+                    <a href="faqUpdate.php"><i class="material-icons blue-text">create</i></a>
+                    <a href=""><i class="material-icons red-text">delete</i></a>
+                  </div>
+                </div>
+                <div class="divider"></div>
+                <div class="section">
+                  <h5>Question 2</h5>
+                  <p class="small-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum....</p>
+                  <div class="faqActions">
+                    <a href="faqUpdate.php"><i class="material-icons blue-text">create</i></a>
+                    <a href=""><i class="material-icons red-text">delete</i></a>
+                  </div>
+                </div>
+                <div class="divider"></div>
+                <div class="section">
+                  <h5>Question 3</h5>
+                  <p class="small-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum....</p>
+                  <div class="faqActions">
+                    <a href="faqUpdate.php"><i class="material-icons blue-text">create</i></a>
+                    <a href=""><i class="material-icons red-text">delete</i></a>
+                  </div>
+                </div>
+                <div class="divider"></div>
+                <div class="section">
+                  <h5>Question 4</h5>
+                  <p class="small-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum....</p>
+                  <div class="faqActions">
+                    <a href="faqUpdate.php"><i class="material-icons blue-text">create</i></a>
+                    <a href=""><i class="material-icons red-text">delete</i></a>
+                  </div>
+                </div>
               </div>
-              <div class="divider"></div>
-              <div class="section">
-                <h5>Question 2</h5>
-                <p>Answer 2</p>
-              </div>
-              <div class="divider"></div>
-              <div class="section">
-                <h5>Question 3</h5>
-                <p>Answer 3</p>
-              </div>
-            </div>
             </div>
           </div>
         </div>
