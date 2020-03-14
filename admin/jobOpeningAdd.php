@@ -22,9 +22,9 @@
                                                 <button class="btn waves-effect waves-light" type="submit"
                                                         name="action">Submit
                                                 </button>
-                                                <button class="btn waves-effect waves-light" type="submit"
+                                                <a class="btn waves-effect waves-light" type="submit"
                                                         name="action">Back to List
-                                                </button>
+                                                </a>
                                             </div>
                                     </form>
                                 </div>

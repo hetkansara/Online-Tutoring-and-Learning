@@ -11,25 +11,32 @@
                                     <form class="col s12">
                                         <div class="row margin-bottom-none">
                                             <div class="input-field col s12">
-                                                <input id="email" type="email" class="validate">
-                                                <label for="email">Email</label>
+                                                <input id="title" name="title" type="text" class="validate">
+                                                <label for="title">Title</label>
+                                            </div>
+                                            <div class="file-field input-field col s12">
+                                                <div class="btn">
+                                                    <span>Upload Learning Material</span>
+                                                    <input type="file">
+                                                </div>
+                                                <div class="file-path-wrapper">
+                                                    <input class="file-path validate" type="text">
+                                                </div>
                                             </div>
                                             <div class="input-field col s12">
-                                                <i class="material-icons prefix">phone</i>
-                                                <input id="contact" type="text" class="validate">
-                                                <label for="contact">Contact</label>
-                                            </div>
-                                            <div class="input-field col s12">
-                                                <i class="material-icons prefix">date_range</i>
-                                                <input id="dateOfBirth" type="text" class="validate datepicker">
-                                                <label for="dateOfBirth">Date of Birth</label>
+                                                <select class="validate browser-default">
+                                                    <option value="" disabled selected>Select Subject</option>
+                                                    <option value="1">Option 1</option>
+                                                    <option value="2">Option 2</option>
+                                                    <option value="3">Option 3</option>
+                                                </select>
                                             </div>
                                             <div class="input-field col s12">
                                                 <button class="btn waves-effect waves-light" type="submit"
-                                                        name="action">Update
+                                                        name="action">Add
                                                 </button>
                                                 <button class="btn waves-effect waves-light" type="submit"
-                                                        name="action">Clear
+                                                        name="action">Back to List
                                                 </button>
                                             </div>
                                     </form>
