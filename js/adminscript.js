@@ -5,3 +5,12 @@
 
     }); // end of document ready
 })(jQuery); // end of jQuery name space
+
+
+// Or with jQuery
+$(document).ready(function(){
+    $('.datepicker').datepicker();
+    $('select').formSelect();
+    $('.tabs').tabs();
+  });
+  
