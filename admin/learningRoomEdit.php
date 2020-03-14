@@ -12,8 +12,12 @@
                                         <div class="row margin-bottom-none">
                                           
                                             <div class="input-field col s12">
-                                                <input id="roomNo" type="text" value="R01" class="validate">
+                                                <input id="roomNo" type="text" value="R01" disabled="true" class="validate">
                                                 <label for="roomNo">Room No</label>
+                                            </div> 
+											<div class="input-field col s12">
+                                                <input id="roomCapacity" type="number" value="2" class="validate">
+                                                <label for="roomCapacity">Capacity</label>
                                             </div>
                                        
                                             <div class="input-field col s12">
