@@ -86,10 +86,17 @@
             </div>
           </div>
         </div>
+        <div class="row">
+        <div class="direction-top">
+            <a title="Add Mock Test" href="#" class="btn-floating btn-large green floatright">
+                <i class="large material-icons">add</i>
+            </a>
+        </div>
+        </div>
       </div>
     <div id="MockTestQuestions" class="col s12">
         <div class="row">
-          <div class="input-field col s12 m12 l4">
+        <div class="input-field col s12 m12 l4">
             <input id="first_name" type="text" class="validate search-box">
             <label for="first_name" class="serach-label">Search Mock Test Questions...</label>
           </div>
@@ -199,7 +206,13 @@
               </div>
             </div>
           </div>
-          
+        </div>
+        <div class="row">
+        <div class="direction-top">
+            <a title="Add Mock Test Question" href="#" class="btn-floating btn-large green floatright">
+                <i class="large material-icons">add</i>
+            </a>
+        </div>
         </div>
       </div>
     </div>
