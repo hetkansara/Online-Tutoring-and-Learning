@@ -205,3 +205,92 @@ textarea.materialize-textarea:focus:not([readonly]) {
 .contact-container fieldset {
     padding: 20px;
 }
+
+.add-contact-title{
+    font-size: 35px !important;
+    width:50% !important;
+    color: orange;
+    font-weight: 400;
+    margin-left:12px !important;
+    margin-bottom:22px !important;
+}
+
+.add-contact-form{
+    margin:0 !important;
+    width:90% !important;
+    margin:0px !important;
+    margin-bottom:15px !important;
+}
+
+.add-contact-element-title{
+    color:orange;
+}
+
+.add-contact-address{
+    width: 87% !important;
+    margin-left: 11px !important;
+}
+
+/* .add-contact-change-form{
+    /* width: 40%; */
+/*} */
+
+.add-contact-flex{
+    display: flex;
+}
+
+.add-contact-label{
+    margin-top: 36px;
+    margin-left: 53px;
+    margin-right: 10px;
+    font-size: 17px;
+}
+
+.add-contact-field{
+    margin-top: 14px !important;
+    /* margin-left: 45px !important; */
+}
+
+.list-sub-add-btn{
+    margin-left: 10px;
+    right:10px !important;
+}
+
+.sub-list{
+    margin-top:62px;
+}
+
+.add-contact-btn{
+    margin-left:35px;
+    margin-top:10px;
+}
+
+.sub-image{
+    height:350px;
+    width:40px;
+}
+
+.show-sub{
+    margin-left: 10px;
+    margin-top:20px;
+}
+
+.show-sub-title{
+    margin-top: auto;
+}
+
+.sub-update-btn{
+    margin-top:20px;
+}
+
+.sub-update-title{
+    font-size: 35px !important;
+    width:50% !important;
+    font-weight: 400;
+    margin-left:12px !important;
+    margin-bottom:22px !important;
+}
+
+.sub-del-icon{
+
+}
