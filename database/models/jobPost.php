@@ -1,8 +1,5 @@
 <?php
 
-
-namespace Db;
-
 class JobPost
 {
     private $jobTitle;

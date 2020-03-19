@@ -2,10 +2,11 @@
 
 class Database
 {
+    
     private static $user = 'HPeujBoKAW';
     private static $password = 'nZWeghZ0P9';
     private static $dsn = 'mysql:host=remotemysql.com;dbname=HPeujBoKAW;port=3306';
-    private static $dbcon;
+    private static $dncon;
 
     private function __construct()
     {

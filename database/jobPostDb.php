@@ -1,7 +1,5 @@
 <?php
 
-use \PDO;
-
 require_once "connect.php";
 require_once "models/JobPost.php";
 
@@ -25,12 +23,14 @@ class jobPostDb extends Database
 
     public function Add($JobPost)
     {
-        $sql = "INSERT INTO job_post (title, description) VALUES (:jobtitle, :jobdescription)";
+        $sql = "INSERT INTO job_post (title, description, created_datetime) VALUES (:jobtitle, :jobdescription, :createdDatetime)";
+        $date = date('Y-m-d H:i:s');
         $pdostm = parent::getDb()->prepare($sql);
         $JobTitle = $JobPost->getJobTitle();
-        $JobDesc = $JobPost->getJobTitle();
+        $JobDesc = $JobPost->getJobDescription();
         $pdostm->bindParam(':jobtitle', $JobTitle);
         $pdostm->bindParam(':jobdescription', $JobDesc);
+        $pdostm->bindParam(':createdDatetime', $date);
 
         $numRowsAffected = $pdostm->execute();
         return $numRowsAffected;

@@ -23,7 +23,7 @@
                         <div class="card">
                             <div class="card-content">
                                 <div class="direction-top">
-                                    <a title="Add Job Opening" href="jobOpeningAdd.php" class="btn-floating btn-large green floatright">
+                                    <a title="Add Job Opening" href="jobPostAdd.php" class="btn-floating btn-large green floatright">
                                         <i class="large material-icons">add</i>
                                     </a>
                                 </div>
