@@ -6,7 +6,7 @@ require_once "connect.php";
 require_once "models/JobPost.php";
 
 
-class jobOpening extends Database
+class jobPostDb extends Database
 {
     public function __construct()
     {
