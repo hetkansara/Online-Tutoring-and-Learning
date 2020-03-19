@@ -1,29 +1,32 @@
-<?php require_once "../includes/adminHeader.php" ?>
 <?php
+
+
+require_once "../includes/adminHeader.php" ?>
+<?php
+
+    require_once "../database/LearningRoomDB.php";
+// require_once "../database/connect.php";
+    require_once "../database/models/LearningRoom.php";
+
+$errorRoom = "";
 if(isset($_POST['roomAdd'])) {
     $roomNo = $_POST['roomNo'];
     
-    $user = 'root';
-    $password = '';
-    $dbname = 'phpclass';
-    $dsn = 'mysql:host=localhost;dbname=' . $dbname;
-
-    $dbcon = new PDO($dsn, $user, $password);
-
-    $sql = "INSERT INTO students (name, email, program) 
-              VALUES (:name, :email, :program) ";
-    $pst = $dbcon->prepare($sql);
-
-    $pst->bindParam(':name', $name);
-    $pst->bindParam(':email', $email);
-    $pst->bindParam(':program', $program);
-
-    $count = $pst->execute();
-    if($count){
-        header("Location: listStudents.php");
-    } else {
-        echo "problem adding a student";
+    if($roomNo === "" || $roomNo === null){
+        $errorRoom = "Please enter a Room no";
     }
+    
+    $learningRoom = new LearningRoom($roomNo);
+    $learningRoomDB = new LearningRoomDB();
+    $learningRoomDB->Add($learningRoom);
+
+    // $db = Database::getDb();
+    //    $s = new LearningRoom();
+    //    $c = $s->Add($roomNo);
+    // var_dump($c);
+
+
+      
 }
 
 ?>
@@ -36,14 +39,15 @@ if(isset($_POST['roomAdd'])) {
                             <div class="card-content">
                                 <span class="card-title">Add Learning Room</span>
                                 <div class="row">
-                                    <form class="col s12">
+                                    <form class="col s12" action="" method="post">
                                         <div class="row margin-bottom-none">
                                           
                                             <div class="input-field col s12">
                                                 <input id="roomNo" name="roomNo" type="text" class="validate">
                                                 <label for="roomNo">Room No</label>
+                                                <span id="roomError"><?= $errorRoom; ?></span>
                                             </div>
-                                            <span id="roomError"></span>
+                                            
                                             <div class="input-field col s12">
                                                 <button class="btn waves-effect waves-light" name="roomAdd" type="submit"
                                                         name="action">Add Room

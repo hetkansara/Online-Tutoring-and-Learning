@@ -17,14 +17,14 @@ class Database
     {
         if (!isset(self::$dbcon)) {
             try {
-                self::$dncon = new \PDO(self::$dsn, self::$user, self::$password);
+                self::$dbcon = new \PDO(self::$dsn, self::$user, self::$password);
             } catch (PDOException $e) {
                 $msg = $e->getMessage();
                 include "customError.php";
                 exit();
             }
         }
-        return self::$dncon;
+        return self::$dbcon;
     }
 
 }
