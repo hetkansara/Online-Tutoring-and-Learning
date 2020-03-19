@@ -1,5 +1,4 @@
-CREATE DATABASE tutordb;
-USE tutordb;
+
 
 CREATE TABLE user_roles (
     id int PRIMARY KEY AUTO_INCREMENT,
