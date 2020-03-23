@@ -13,8 +13,16 @@ class SubjectContext extends Database
       $pdostm->bindParam(':subject_id', $subjectID); 
       $pdostm->execute();
       $subject = $pdostm->fetch(PDO::FETCH_ASSOC);
-      // $mockQuestions[$index]['subject']= ;
-        return $subject;
+      return $subject;
+    }
+
+    public function getAllSubjects()
+    {
+      $sql = "select * from subjects";
+      $pdostm =parent::getDb()->prepare($sql);
+      $pdostm->execute();
+      $subjects = $pdostm->fetchAll(PDO::FETCH_ASSOC);
+      return $subjects;
     }
 
 }

@@ -16,19 +16,11 @@
             <label for="first_name" class="serach-label">Search Mock Test...</label>
           </div>
           <div class="input-field col s12 m12 l3">
-            <select class="browser-default">
-              <option value="" disabled selected>Select Tutor</option>
-              <option value="1">Option 1</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
+            <select class="browser-default" id="tutorSelect">
             </select>
           </div>
           <div class="input-field col s12 m12 l3">
-            <select class="browser-default">
-              <option value="" disabled selected>Select Subject</option>
-              <option value="1">Option 1</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
+            <select class="browser-default" id="subjectsSelect">
             </select>
           </div>
           <div class="input-field col s12 m12 l2">
@@ -102,19 +94,11 @@
             <label for="first_name" class="serach-label">Search Mock Test Questions...</label>
           </div>
           <div class="input-field col s12 m12 l3">
-            <select class="browser-default">
-              <option value="" disabled selected>Select Tutor</option>
-              <option value="1">Option 1</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
+            <select class="browser-default" id="tutorSelect1">
             </select>
           </div>
           <div class="input-field col s12 m12 l3">
-            <select class="browser-default">
-              <option value="" disabled selected>Select Subject</option>
-              <option value="1">Option 1</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
+            <select class="browser-default" id="subjectsSelect1">
             </select>
           </div>
           <div class="input-field col s12 m12 l2">

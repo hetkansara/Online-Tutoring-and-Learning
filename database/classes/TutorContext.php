@@ -13,8 +13,16 @@ class TutorContext extends Database
       $pdostm->bindParam(':tutor_id', $tutorID); 
       $pdostm->execute();
       $tutor = $pdostm->fetch(PDO::FETCH_ASSOC);
-      // $mockQuestions[$index]['tutor']= $tutor;
-        return $tutor;
+      return $tutor;
+    }
+
+    public function getAllTutors()
+    {
+      $sql = "select * from tutors t, users u where u.id = t.user_id";
+      $pdostm = parent::getDb()->prepare($sql);
+      $pdostm->execute();
+      $tutors = $pdostm->fetchAll(PDO::FETCH_ASSOC);
+      return $tutors;
     }
 
 }
