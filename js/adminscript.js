@@ -12,5 +12,6 @@ $(document).ready(function(){
     $('.datepicker').datepicker();
     $('select').formSelect();
     $('.tabs').tabs();
-  });
+    $('.modal').modal();
+});
   

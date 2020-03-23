@@ -141,6 +141,15 @@ textarea.materialize-textarea:focus:not([readonly]) {
     padding-left: 7px !important;
 }
 
+.floating-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+}
+.tiny-text{
+    font-size: 0.7em;
+}
+
 /* Developer: Maitri Modi */
 
 .logo-font {

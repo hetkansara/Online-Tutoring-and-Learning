@@ -69,20 +69,26 @@ CREATE TABLE job_post (
 
 CREATE TABLE mock_tests (
   id int PRIMARY KEY AUTO_INCREMENT,
+  tutor_id	int NOT NULL,
   subject_id int NOT NULL,
   title	varchar(50),
   description	varchar(200),
   created_datetime	datetime,
   updated_datetime	datetime,
+  FOREIGN KEY(tutor_id) REFERENCES tutors(id),
   FOREIGN KEY(subject_id) REFERENCES subjects(id)
 );
 
 CREATE TABLE mock_questions (
   id int PRIMARY KEY AUTO_INCREMENT,
+  tutor_id	int NOT NULL,
+  subject_id	int NOT NULL,
   question varchar(200) NOT NULL,
   marks	int  NOT NULL,
   created_datetime	datetime,
-  updated_datetime	datetime
+  updated_datetime	datetime,
+  FOREIGN KEY(tutor_id) REFERENCES tutors(id),
+  FOREIGN KEY(subject_id) REFERENCES subjects(id)
 );
 
 CREATE TABLE mock_questions_options (

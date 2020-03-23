@@ -6,9 +6,9 @@ class Database
     private static $user = 'HPeujBoKAW';
     private static $password = 'nZWeghZ0P9';
     private static $dsn = 'mysql:host=remotemysql.com;dbname=HPeujBoKAW;port=3306';
-    private static $dncon;
+    private static $dbcon;
 
-    private function __construct()
+    public function __construct()
     {
 
     }

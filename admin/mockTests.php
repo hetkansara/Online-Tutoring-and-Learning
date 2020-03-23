@@ -1,4 +1,5 @@
 <?php require_once "../includes/adminHeader.php" ?>
+<script src="../js/Rest-API/admin-mockTest.js"></script>
 <main class="adminmain admin-mock-tests">
   <div class="section no-pad-bot" id="index-banner">
     <div class="row">
@@ -87,16 +88,16 @@
           </div>
         </div>
         <div class="row">
-        <div class="direction-top">
+          <div class="direction-top">
             <a title="Add Mock Test" href="#" class="btn-floating btn-large green floatright">
-                <i class="large material-icons">add</i>
+              <i class="large material-icons">add</i>
             </a>
-        </div>
+          </div>
         </div>
       </div>
-    <div id="MockTestQuestions" class="col s12">
+      <div id="MockTestQuestions" class="col s12">
         <div class="row">
-        <div class="input-field col s12 m12 l4">
+          <div class="input-field col s12 m12 l4">
             <input id="first_name" type="text" class="validate search-box">
             <label for="first_name" class="serach-label">Search Mock Test Questions...</label>
           </div>
@@ -122,101 +123,35 @@
             </button>
           </div>
         </div>
-        <div class="row">
-          <div class="col s12">
-            <div class="card">
-              <div class="card-content">
-                <span class="card-title">How to create a variable in PHP? <a href=""><i class=" material-icons">create</i></a> <a href=""><i class="material-icons right">delete</i></a></span>
-                <ol type="A">
-                  <li>string myVar = "myvar"; <a href=""><i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
-                  <li>let myVar = "myvar"; <i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
-                  <li>var myVar = "myvar"; <i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
-                  <li>$myVar = "myvar"; <i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
-                </ol>
-              </div>
-              <div class="card-action">
-                <form>
-                  <div class="row">
-                    <div class="input-field col s12 m12 l8">
-                      <input id="option" type="text" class="validate">
-                      <label for="option" class="serach-label">Enter Option...</label>
-                    </div>
-                    <div class="input-field col s12 m12 l4">
-                      <button class="btn waves-effect waves-light" type="submit" name="action">Add Option
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col s12">
-            <div class="card">
-              <div class="card-content">
-                <span class="card-title">How to create a variable in PHP? <a href=""><i class="material-icons">create</i></a> <a href=""><i class="material-icons right">delete</i></a></span>
-                <ol type="A">
-                  <li>string myVar = "myvar"; <a href=""><i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
-                  <li>let myVar = "myvar"; <i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
-                  <li>var myVar = "myvar"; <i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
-                  <li>$myVar = "myvar"; <i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
-                </ol>
-              </div>
-              <div class="card-action">
-                <form>
-                  <div class="row">
-                    <div class="input-field col s12 m12 l8">
-                      <input id="option" type="text" class="validate">
-                      <label for="option" class="serach-label">Enter Option...</label>
-                    </div>
-                    <div class="input-field col s12 m12 l4">
-                      <button class="btn waves-effect waves-light" type="submit" name="action">Add Option
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col s12">
-            <div class="card">
-              <div class="card-content">
-                <span class="card-title">How to create a variable in PHP? <a href=""><i class="material-icons">create</i></a> <a href=""><i class="material-icons right">delete</i></a></span>
-                <ol type="A">
-                  <li>string myVar = "myvar"; <a href=""><i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
-                  <li>let myVar = "myvar"; <i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
-                  <li>var myVar = "myvar"; <i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
-                  <li>$myVar = "myvar"; <i class="tiny material-icons">create</i></a> <a href=""><i class="tiny material-icons">delete</i></a></li>
-                </ol>
-              </div>
-              <div class="card-action">
-                <form>
-                  <div class="row">
-                    <div class="input-field col s12 m12 l8">
-                      <input id="option" type="text" class="validate">
-                      <label for="option" class="serach-label">Enter Option...</label>
-                    </div>
-                    <div class="input-field col s12 m12 l4">
-                      <button class="btn waves-effect waves-light" type="submit" name="action">Add Option
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-        <div class="direction-top">
-            <a title="Add Mock Test Question" href="#" class="btn-floating btn-large green floatright">
-                <i class="large material-icons">add</i>
-            </a>
-        </div>
+        <a title="Add Mock Test Question" href="#" class="btn-floating btn-large green floatright floating-btn">
+          <i class="large material-icons">add</i>
+        </a>
+        <div class="row" id="mockTestsList">
+
         </div>
       </div>
     </div>
 
+  </div>
+
+  <!-- Modal Structure -->
+  <div id="optionAddUpdate" class="modal">
+    <form>
+      <div class="modal-content">
+        <h4>Add an option</h4>
+        <p>How to create a variable in PHP?</p>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="optionValue" type="text" class="validate">
+            <label for="optionValue" class="serach-label">Enter Option value</label>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Add Option</a>
+      </div>
+    </form>
   </div>
 </main>
 <?php require_once "../includes/adminFooter.php" ?>
