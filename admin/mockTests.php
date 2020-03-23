@@ -12,8 +12,8 @@
       <div id="MockTest" class="col s12">
         <div class="row">
           <div class="input-field col s12 m12 l4">
-            <input id="first_name" type="text" class="validate search-box">
-            <label for="first_name" class="serach-label">Search Mock Test...</label>
+            <input id="mock_test_search" type="text" class="validate search-box">
+            <label for="mock_test_search" class="serach-label">Search Mock Test...</label>
           </div>
           <div class="input-field col s12 m12 l3">
             <select class="browser-default" id="tutorSelect">
@@ -90,8 +90,8 @@
       <div id="MockTestQuestions" class="col s12">
         <div class="row">
           <div class="input-field col s12 m12 l4">
-            <input id="first_name" type="text" class="validate search-box">
-            <label for="first_name" class="serach-label">Search Mock Test Questions...</label>
+            <input id="mock_test_questions_search" type="text" class="validate search-box">
+            <label for="mock_test_questions_search" class="serach-label">Search Mock Test Questions...</label>
           </div>
           <div class="input-field col s12 m12 l3">
             <select class="browser-default" id="tutorSelect1">
