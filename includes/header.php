@@ -17,7 +17,7 @@
     <div class="nav-wrapper container"><a id="logo-container" href="index.php" class="brand-logo logo-font">iTutor</a>
         <ul class="right hide-on-med-and-down">
             <li><a href="index.php">Home</a></li>
-            <li><a href="contact.php">Contact</a></li>
+            <li><a href="addUserContact.php">Contact</a></li>
             <li><a href="login.php">Login</a></li>
         </ul>
 

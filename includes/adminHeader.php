@@ -39,7 +39,7 @@
                     <li><a href="../admin/jobOpenings.php"><i class="material-icons">work</i>Job Openings</a></li>
                     <li><a href="#!"><i class="material-icons">help_outline</i>FAQs</a></li>
                     <li><a href="webContent.php"><i class="material-icons">content_copy</i>Website Content</a></li>
-                    <li><a href="updateContact.php"><i class="material-icons">contact_mail</i>Contact Us</a></li>
+                    <li><a href="showContact.php"><i class="material-icons">contact_mail</i>Contact Us</a></li>
                     <li class="divider"></li>
                     <li><a href="#!"><i class="material-icons">person_outline</i>Profile</a></li>
                     <li><a href="#!"><i class="material-icons">security</i>Change Password</a></li>
@@ -62,7 +62,7 @@
         <li><a href="mockTests.php"><i class="material-icons">assignment</i>Mock Tests</a></li>
         <li><a href="../admin/jobOpenings.php"><i class="material-icons">work</i>Job Openings</a></li>
         <li><a href="faqList.php"><i class="material-icons">help_outline</i>FAQs</a></li>
-        <li><a href="updateContact.php"><i class="material-icons">contact_mail</i>Contact Us</a></li>
+        <li><a href="showContact.php"><i class="material-icons">contact_mail</i>Contact Us</a></li>
         <li><a href="webContent.php"><i class="material-icons">content_copy</i>Website Content</a></li>
     </ul>
 </aside>
