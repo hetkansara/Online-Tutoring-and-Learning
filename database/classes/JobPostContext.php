@@ -1,10 +1,10 @@
 <?php
 
-require_once "connect.php";
-require_once "models/JobPost.php";
+require_once "database\connect.php";
+require_once "database\models\JobPost.php";
 
 
-class jobPostDb extends Database
+class JobPostContext extends Database
 {
     public function __construct()
     {

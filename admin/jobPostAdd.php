@@ -1,7 +1,7 @@
 <?php
 
-require_once '../database/jobPostDb.php';
-require_once '../database/models/jobPost.php';
+require_once '../database/JobPostContext.php';
+require_once '../database/models/JobPost.php';
 
 //check if the form is submitted
 if (isset($_POST['addJobPost'])) {
@@ -17,14 +17,13 @@ if (isset($_POST['addJobPost'])) {
     $jobPost = new JobPost($jobTitle,$jobDescription);
 
     //insert the data
-    $jobPostDb = new jobPostDb();
+    $jobPostDb = new jobPostContext();
     $numRowsAffected = $jobPostDb->Add($jobPost);
     if ($numRowsAffected) {
-        header('Location: jobOpenings.php');
+        header('Location: jobPosts.php');
     } else {
         echo "problem inserting data";
     }
-
 
 }
 ?>
