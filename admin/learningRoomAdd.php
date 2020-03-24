@@ -3,7 +3,7 @@ require_once "../includes/adminHeader.php" ?>
 <?php
 
     require_once "../database/LearningRoomDB.php";
-    require_once "../database/models/LearningRoom.php";
+    require_once "../database/classes/models/LearningRoom.php";
 
 $errorRoom = "";
 if(isset($_POST['roomAdd'])) {
@@ -20,6 +20,7 @@ if(isset($_POST['roomAdd'])) {
         if(is_bool($getroom)){
             $errorRoom = "Room Added";
             $learningRoomDB->Add($learningRoom);        //passing Create->AddFunctn (getSetclass)   
+			// header("Location:LearningRoomList.php");
         }else{
             $errorRoom = "Room already exists";
         }

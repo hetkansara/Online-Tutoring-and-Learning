@@ -3,8 +3,8 @@
 // DB does all CRUD operations
 // normal learning room do get set me
 
-require_once "models/LearningRoom.php";
-require_once "connect.php";
+require_once "classes/models/LearningRoom.php";
+require_once "classes/connect.php";
 
 class LearningRoomDb extends Database
 {

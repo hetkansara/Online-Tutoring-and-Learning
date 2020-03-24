@@ -4,7 +4,7 @@
     }
     require_once "../includes/adminHeader.php";
 require_once "../database/LearningRoomDb.php";
-require_once "../database/models/LearningRoom.php";
+require_once "../database/classes/models/LearningRoom.php";
 
 $roomExists="";
     $learningRoomDb = new LearningRoomDb();
@@ -24,7 +24,7 @@ $roomExists="";
 
             if(is_bool($getroom)){
                 $learningRoom->setRoomNumber($_POST['updateRoomNo']);
-                echo $roomExists = "Room Updated id";
+                echo $roomExists = "Room Updated";
                 $learningRoomDb->Update($learningRoom,$_GET['id']);        //passing object and id
                 // header("Location:LearningRoomList.php");
             }else{

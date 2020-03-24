@@ -2,7 +2,7 @@
 require_once "../includes/adminHeader.php" ?>
 <?php
     require_once "../database/LearningRoomDb.php";
-    require_once "../database/models/LearningRoom.php";
+    require_once "../database/classes/models/LearningRoom.php";
 
     if(isset($_GET['action'])){
 		if($_GET['action']=="delete" && isset($_GET['id'])){
