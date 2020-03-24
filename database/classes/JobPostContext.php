@@ -20,6 +20,18 @@ class JobPostContext extends Database
 
     }
 
+    public function Search($searchKey)
+    {
+        $sql = "SELECT * FROM job_post where LOWER(title) LIKE :searchKey";
+        $pdostm = parent::getDb()->prepare($sql);
+        $searchKey = '%' . strtolower($searchKey) . '%';
+        $pdostm->bindParam(':searchKey', $searchKey);
+        $pdostm->execute();
+
+        $jobOpenings = $pdostm->fetchAll(PDO::FETCH_OBJ);
+        return $jobOpenings;
+    }
+
     public function Add($JobPost)
     {
         $sql = "INSERT INTO job_post (title, description, created_datetime) VALUES (:jobtitle, :jobdescription, :createdDatetime)";
@@ -36,7 +48,7 @@ class JobPostContext extends Database
 
     }
 
-    public function Update($JobPost,$id)
+    public function Update($JobPost, $id)
     {
         $sql = "Update job_post set title = :jobtitle, description = :jobdescription where id= :id";
         $pdostm = parent::getDb()->prepare($sql);

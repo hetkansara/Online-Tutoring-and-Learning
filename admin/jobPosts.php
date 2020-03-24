@@ -19,6 +19,12 @@ if (isset($_POST["deleteJobPost"])) {
     }
 }
 
+if (isset($_POST["searchJobPost"])) {
+
+    $searchKey = $_POST["searchKey"];
+    $jobPostDb = new JobPostContext();
+    $jobPosts = $jobPostDb->Search($searchKey);
+}
 
 ?>
     <main class="adminmain admin-mock-tests">
@@ -28,13 +34,13 @@ if (isset($_POST["deleteJobPost"])) {
                     <h5 class="breadcrumbs-title">Job Openings</h5>
                 </div>
                 <div class="row">
-                    <form>
+                    <form method="post">
                         <div class="input-field col s12 m12 l4">
-                            <input id="first_name" type="text" class="validate search-box">
-                            <label for="first_name" class="serach-label">Search Job Opening...</label>
+                            <input id="searchKey" name="searchKey" type="text" class="validate search-box">
+                            <label for="searchKey" class="serach-label">Search Job Title..</label>
                         </div>
                         <div class="input-field col s12 m12 l2">
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Search
+                            <button class="btn waves-effect waves-light" type="submit" name="searchJobPost">Search
                                 <i class="material-icons right">search</i>
                             </button>
                         </div>
