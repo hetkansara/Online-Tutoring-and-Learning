@@ -46,12 +46,12 @@ class LearningRoomDb extends Database
         return $numRowsAffected;
     }
 
-    public function Delete($room_number)
+    public function Delete($id)
     {
-        $sql = "DELETE FROM learning_rooms WHERE room_number = :room_number";
+        $sql = "DELETE FROM learning_rooms WHERE id = :id";
 
         $pst = parent::getDb()->prepare($sql);
-        $pst->bindParam(':room_number', $room_number);
+        $pst->bindParam(':id', $id);
         $count = $pst->execute();
         return $count;
     }
@@ -65,5 +65,15 @@ class LearningRoomDb extends Database
         $roomno = $pdostm->fetch(PDO::FETCH_OBJ);
         return $roomno;
     }
+    public function Search($room_number)
+    {
+        $sql = "SELECT * FROM learning_rooms where room_number LIKE :room_number";
+        $pdostm = parent::getDb()->prepare($sql);
+        $searchKey = '%' . strtolower($room_number) . '%';
+        $pdostm->bindParam(':room_number', $searchKey);
+        $pdostm->execute();
 
+        $learningRoom = $pdostm->fetchAll(PDO::FETCH_OBJ);
+        return $learningRoom;
+    }
 }

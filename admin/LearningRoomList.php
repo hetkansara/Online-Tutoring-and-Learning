@@ -1,6 +1,6 @@
 <?php
-require_once "../includes/adminHeader.php" ?>
-<?php
+require_once "../includes/adminHeader.php";
+
     require_once "../database/LearningRoomDb.php";
     require_once "../database/classes/models/LearningRoom.php";
 
@@ -8,8 +8,36 @@ require_once "../includes/adminHeader.php" ?>
 		if($_GET['action']=="delete" && isset($_GET['id'])){
             $id = $_GET['id'];
 		}
-	}
-        $learningRoomDb = new LearningRoomDb();     //initializing CRUD operation
+    }
+    $noRooms ="";
+    $addUpdateMsg = "";
+    $learningRoomDb = new LearningRoomDb();     //
+    $Room = $learningRoomDb->ListAll();
+
+    
+    if (isset($_POST["deleteRoom"])) {
+        $roomid = $_POST["learningRoomId"];
+        // echo $_POST["learningRoomId"];
+
+        $learningRoomDb = new LearningRoomDb();
+        $numRowsAffected = $learningRoomDb->Delete($roomid);
+        
+        if ($numRowsAffected) {
+            $learningRoomDb = new LearningRoomDb();
+            $Room = $learningRoomDb->ListAll();
+        } else {
+            echo "Problem in Deleting!!";
+        }
+    }
+       
+    if (isset($_POST["searchRoomBtn"])) {
+        $searchKey = $_POST["roomsearch"];
+        $learningRoomDb = new LearningRoomDb();
+        $Room = $learningRoomDb->Search($searchKey);
+        if(!$Room){
+            $noRooms = "<tr><td colspan=2>Sorry!! No rooms found!!</td></tr>";
+        }
+    }
            
 ?>
     <main class="adminmain admin-mock-tests">
@@ -20,17 +48,18 @@ require_once "../includes/adminHeader.php" ?>
                     
                 </div>
                 <div class="row">
-                    <form>
+                    <form method="post">
                         <div class="input-field col s12 m12 l4">
-                            <input id="first_name" type="text" class="validate search-box">
-                            <label for="first_name" class="serach-label">Search learning Rooms...</label>
+                            <input id="roomsearch" type="text" name="roomsearch" class="validate search-box">
+                            <label for="roomsearch" class="serach-label">Search learning Rooms...</label>
                         </div>
                         <div class="input-field col s12 m12 l2">
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Search
+                            <button class="btn waves-effect waves-light" type="submit" name="searchRoomBtn">Search
                                 <i class="material-icons right">search</i>
                             </button>
                         </div>
                     </form>
+                <span><?=$addUpdateMsg;?></span>
                 </div>
                 
                 <div class="row">
@@ -52,30 +81,42 @@ require_once "../includes/adminHeader.php" ?>
                                     </thead>
                                     <tbody>
                                     <?php 
-                                    foreach($learningRoomDb->ListAll() as $value){
-                                        echo "
+                                    echo $noRooms;
+                                    foreach($Room as $value){?>
+                                        <!-- echo " -->
                                     <tr>
-                                        <td>$value->room_number</td>
-                                        <td>$value->created_datetime</td>
+                                        <td><?=$value->room_number?></td>
+                                        <td><?=$value->created_datetime?></td>
                                         <td>
-                                            <a href='LearningRoomEdit.php?id=$value->id' name='edit_room'><i class='material-icons blue-text'>create</i></a>
-                                            <a data-target='demo-modal' class='modal-trigger cursor-pointer' href='#demo-modal'
-                                           data-nom='$value->id'>
+                                            <a href='LearningRoomEdit.php?id=<?=$value->id?>' name='edit_room'><i class='material-icons blue-text'>create</i></a>
+
+                                            <?php $roomid = "roomid".$value->id; ?> <!-- for storing rooom id for transfer to modal pop up-->
+
+                                            <a class='modal-trigger cursor-pointer' href='#<?=$roomid?>'>
                                                 <i class='material-icons red-text'>delete</i>
                                             </a>
                                         </td>
-                                    </tr>";
-                                    ?>
-                                    <div id='demo-modal' class='modal modal-learning-popup'>
+                                    </tr>
+                                    <!--  -->
+                                    <!--- modal pop up for delete --->
+                                    <div id='roomid<?=$value->id?>' class='modal modal-learning-popup'>
                                         <div class='modal-content'>
                                         <h4>Are you sure?</h4>
                                         <p>Do you really want to delete this room?</p>
                                         </div>
                                         <div class='modal-footer-LearningRoom'>
+                                            <form method="post">
+                                                <div class="modal-footer">
+                                                    <input type="hidden" name="learningRoomId" value="<?=$value->id;?>">
+                                                    <a href="#!" class="modal-action modal-close waves-effect waves-white btn-flat">Close</a>
+                                                    <button class="btn waves-effect waves-light delete-btn-learningRoom"
+                                                            type="submit" name="deleteRoom">Delete
+                                                    </button>
+                                                </div>
+                                            </form>
                                             <!-- <a href='LearningRoomList?action=delete&id=<?=$value->id?>' name="nom" class=" ">Delete</a> -->
-                                            <span class="delete-btn-learningRoom waves-effect waves-light btn-small"></span>
-                                            <a href="#!" class="modal-action modal-close waves-effect waves-white btn-flat">Close</a>
-                                            <input type="text" name="nom">
+                                            <!-- <span class="delete-btn-learningRoom waves-effect waves-light btn-small"></span> -->
+                                            <!-- <a href="#!" class="modal-action modal-close waves-effect waves-white btn-flat">Close</a> -->
                                         </div>
                                     </div>
                                 <?php }  ?>

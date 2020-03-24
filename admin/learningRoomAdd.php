@@ -1,6 +1,4 @@
 <?php
-require_once "../includes/adminHeader.php" ?>
-<?php
 
     require_once "../database/LearningRoomDB.php";
     require_once "../database/classes/models/LearningRoom.php";
@@ -18,14 +16,17 @@ if(isset($_POST['roomAdd'])) {
         // var_dump($learningRoomDB->Get($roomNo));        //passing Create->AddFunctn (getSetclass)
         $getroom = $learningRoomDB->Get($roomNo);        //passing Create->AddFunctn (getSetclass)
         if(is_bool($getroom)){
-            $errorRoom = "Room Added";
-            $learningRoomDB->Add($learningRoom);        //passing Create->AddFunctn (getSetclass)   
-			// header("Location:LearningRoomList.php");
+            // $errorRoom = "Room Added";
+            ///passing Create->AddFunctn (getSetclass)   
+            if($learningRoomDB->Add($learningRoom)){
+                header("Location:LearningRoomList.php");
+            }
         }else{
             $errorRoom = "Room already exists";
         }
     }
 }
+require_once "../includes/adminHeader.php";
 ?>
     <main>
         <div class="container">
