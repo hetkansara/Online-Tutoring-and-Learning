@@ -1,5 +1,7 @@
 <?php
 
+require_once "connect.php";
+
 class TutorContext extends Database
 {
     public function __construct()

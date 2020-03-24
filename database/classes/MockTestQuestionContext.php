@@ -1,7 +1,8 @@
 <?php
 
-include_once "SubjectContext.php";
-include_once "TutorContext.php";
+require_once "connect.php";
+require_once "SubjectContext.php";
+require_once "TutorContext.php";
 
 class MockTestQuestionContext extends Database
 {

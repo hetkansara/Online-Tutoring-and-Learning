@@ -1,8 +1,7 @@
 <?php
 
-require_once "database\connect.php";
-require_once "database\models\JobPost.php";
-
+require_once "connect.php";
+require_once "models/JobPost.php";
 
 class JobPostContext extends Database
 {
