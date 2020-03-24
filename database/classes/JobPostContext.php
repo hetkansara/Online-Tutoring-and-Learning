@@ -41,7 +41,7 @@ class JobPostContext extends Database
         $sql = "Update job_post set title = :jobtitle, description = :jobdescription where id= :id";
         $pdostm = parent::getDb()->prepare($sql);
         $JobTitle = $JobPost->getJobTitle();
-        $JobDesc = $JobPost->getJobTitle();
+        $JobDesc = $JobPost->getJobDescription();
         $pdostm->bindParam(':jobtitle', $JobTitle);
         $pdostm->bindParam(':jobdescription', $JobDesc);
         $pdostm->bindParam(':id', $id);
@@ -72,5 +72,6 @@ class JobPostContext extends Database
         return $jobOpening;
 
     }
+
 
 }

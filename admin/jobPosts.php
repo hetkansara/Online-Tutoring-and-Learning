@@ -6,6 +6,20 @@ require_once '../database/classes/JobPostContext.php';
 $jobPostDb = new JobPostContext();
 $jobPosts = $jobPostDb->ListAll();
 
+if (isset($_POST["deleteJobPost"])) {
+    $jobPostId = $_POST["jobPostId"];
+
+    $jobPostDb = new JobPostContext();
+    $numRowsAffected = $jobPostDb->Delete($jobPostId);
+    if ($numRowsAffected) {
+        $jobPostDb = new JobPostContext();
+        $jobPosts = $jobPostDb->ListAll();
+    } else {
+        echo "problem inserting data";
+    }
+}
+
+
 ?>
     <main class="adminmain admin-mock-tests">
         <div class="section no-pad-bot" id="index-banner">
@@ -47,10 +61,32 @@ $jobPosts = $jobPostDb->ListAll();
                                                 <div class="card-action add-contact-flex">
                                                     <a href="" class="small-text"><i
                                                                 class="material-icons green-text sub-del-icon">remove_red_eye</i></a>
-                                                    <a href="" class="small-text"><i
+                                                    <a href="jobPostUpdate.php?id=<?= $jobPost->id ?>"
+                                                       class="small-text"><i
                                                                 class="material-icons blue-text sub-del-icon">create</i></a>
-                                                    <a href=""><i
+                                                    <?PHP
+                                                    $modalId = "modal" . $jobPost->id;
+                                                    ?>
+                                                    <a class="modal-trigger" href="#<?= $modalId ?>"><i
                                                                 class="material-icons red-text sub-del-icon">delete</i></a>
+                                                    <!-- Modal Structure -->
+                                                    <div id="<?= $modalId ?>" class="modal">
+                                                        <div class="modal-content">
+                                                            <h4><?= $jobPost->title; ?></h4>
+                                                            <p>Are you sure you want to delete this job post?</p>
+                                                        </div>
+                                                        <form method="post">
+                                                            <div class="modal-footer">
+                                                                <input type="hidden" name="jobPostId"
+                                                                       value="<?= $jobPost->id ?>">
+                                                                <a class="modal-close waves-effect waves-red btn-flat">No</a>
+                                                                <button class="btn waves-effect waves-light"
+                                                                        type="submit"
+                                                                        name="deleteJobPost">Yes
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
