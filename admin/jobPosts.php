@@ -3,7 +3,7 @@
 
 require_once '../database/classes/JobPostContext.php';
 
-$jobPostDb = new jobPostContext();
+$jobPostDb = new JobPostContext();
 $jobPosts = $jobPostDb->ListAll();
 
 ?>

@@ -1,7 +1,27 @@
 <?php
 
-require_once '../database/JobPostContext.php';
-require_once '../database/models/JobPost.php';
+require_once '../database/classes/JobPostContext.php';
+require_once '../database/classes/models/JobPost.php';
+
+$TitleValidationMsg = "";
+$DescriptionValidationMsg = "";
+
+
+function checkValidation($jobTitle, $jobDescription)
+{
+    global $TitleValidationMsg, $DescriptionValidationMsg;
+    $isValid = false;
+    if ($jobTitle == "") {
+        $TitleValidationMsg = "Please enter title.";
+    }
+    if ($jobDescription == "") {
+        $DescriptionValidationMsg = "Please enter job description";
+    }
+    if ($jobTitle != null && $jobDescription != null && $jobDescription != "" && $jobTitle != "") {
+        $isValid = true;
+    }
+    return $isValid;
+}
 
 //check if the form is submitted
 if (isset($_POST['addJobPost'])) {
@@ -10,19 +30,19 @@ if (isset($_POST['addJobPost'])) {
     $jobDescription = $_POST['description'];
 
     //check if user entered the data
-    if ($jobTitle == "" || $jobDescription == "") {
-        echo "Please enter the all data";
-    }
 
-    $jobPost = new JobPost($jobTitle,$jobDescription);
+    if (checkValidation($jobTitle, $jobDescription) == true) {
+        //Add Job Post if Job title and job description is entered.
+        $jobPost = new JobPost($jobTitle, $jobDescription);
 
-    //insert the data
-    $jobPostDb = new jobPostContext();
-    $numRowsAffected = $jobPostDb->Add($jobPost);
-    if ($numRowsAffected) {
-        header('Location: jobPosts.php');
-    } else {
-        echo "problem inserting data";
+        //insert the data
+        $jobPostDb = new jobPostContext();
+        $numRowsAffected = $jobPostDb->Add($jobPost);
+        if ($numRowsAffected) {
+            header('Location: jobPosts.php');
+        } else {
+            echo "problem inserting data";
+        }
     }
 
 }
@@ -42,19 +62,21 @@ if (isset($_POST['addJobPost'])) {
                                             <div class="input-field col s12">
                                                 <input id="title" name="title" type="text" class="validate">
                                                 <label for="title">Title</label>
+                                                <span class="helper-text red-text"><?= $TitleValidationMsg ?></span>
                                             </div>
                                             <div class="input-field col s12">
                                                 <textarea id="description" name="description"
                                                           class="validate materialize-textarea"
                                                           data-length="120"></textarea>
                                                 <label for="description">Description</label>
+                                                <span class="helper-text red-text"><?= $DescriptionValidationMsg ?></span>
                                             </div>
                                             <div class="input-field col s12">
                                                 <button class="btn waves-effect waves-light" type="submit"
                                                         name="addJobPost">Submit
                                                 </button>
-                                                <a class="btn waves-effect waves-light" type="submit"
-                                                   name="action">Back to List
+                                                <a class="btn waves-effect waves-light"
+                                                   href="jobPosts.php">Back to List
                                                 </a>
                                             </div>
                                     </form>
