@@ -1,7 +1,10 @@
 <?php
 
+<<<<<<< Updated upstream:database/classes/models/LearningRoom.php
 namespace classes;
 
+=======
+>>>>>>> Stashed changes:database/models/LearningRoom.php
 class LearningRoom
 {
     private $room_number;

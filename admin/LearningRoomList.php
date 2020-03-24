@@ -1,24 +1,29 @@
-<?php require_once "../includes/adminHeader.php" ?>
+<?php
+require_once "../includes/adminHeader.php" ?>
+<?php
+    require_once "../database/LearningRoomDb.php";
+    require_once "../database/models/LearningRoom.php";
+
+    if(isset($_GET['action'])){
+		if($_GET['action']=="delete" && isset($_GET['id'])){
+            $id = $_GET['id'];
+		}
+	}
+        $learningRoomDb = new LearningRoomDb();     //initializing CRUD operation
+           
+?>
     <main class="adminmain admin-mock-tests">
         <div class="section no-pad-bot" id="index-banner">
             <div class="row">
                 <div class="col s10 m6 l12">
                     <h5 class="breadcrumbs-title">Learning Rooms</h5>
+                    
                 </div>
                 <div class="row">
                     <form>
                         <div class="input-field col s12 m12 l4">
                             <input id="first_name" type="text" class="validate search-box">
                             <label for="first_name" class="serach-label">Search learning Rooms...</label>
-                        </div>
-                        <div class="input-field col s12 m12 l4">
-                            <select class="browser-default">
-                                <option value="" disabled selected>Select Room Capacity</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="5">5</option>
-                            </select>
                         </div>
                         <div class="input-field col s12 m12 l2">
                             <button class="btn waves-effect waves-light" type="submit" name="action">Search
@@ -27,6 +32,7 @@
                         </div>
                     </form>
                 </div>
+                
                 <div class="row">
                     <div class="col s12 m12 l12">
                         <div class="card">
@@ -40,58 +46,41 @@
                                     <thead>
                                     <tr>
                                         <th>Room No</th>
-                                        <th>Capacity</th>
                                         <th>Created On</th>
                                         <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    <?php 
+                                    foreach($learningRoomDb->ListAll() as $value){
+                                        echo "
                                     <tr>
-                                        <td>R01</td>
-                                        <td>2</td>
-                                        <td>12-Feb-2020 1:10PM</td>
+                                        <td>$value->room_number</td>
+                                        <td>$value->created_datetime</td>
                                         <td>
-                                            <a href=""><i class="material-icons blue-text">create</i></a>
-                                            <a href=""><i class="material-icons red-text">delete</i></a>
+                                            <a href='LearningRoomEdit.php?id=$value->id' name='edit_room'><i class='material-icons blue-text'>create</i></a>
+                                            <a data-target='demo-modal' class='modal-trigger cursor-pointer' href='#demo-modal'
+                                           data-nom='$value->id'>
+                                                <i class='material-icons red-text'>delete</i>
+                                            </a>
                                         </td>
-                                    </tr>
-                                        <tr>
-                                        <td>R02</td>
-                                        <td>3</td>
-                                        <td>24-Feb-2020 4:10PM</td>
-                                        <td>
-                                            <a href=""><i class="material-icons blue-text">create</i></a>
-                                            <a href=""><i class="material-icons red-text">delete</i></a>
-                                        </td>
-                                    </tr>
-                                        <tr>
-                                        <td>R03</td>
-                                        <td>2</td>
-                                        <td>24-May-2010 4:10PM</td>
-                                        <td>
-                                            <a href=""><i class="material-icons blue-text">create</i></a>
-                                            <a href=""><i class="material-icons red-text">delete</i></a>
-                                        </td>
-                                    </tr>
-                                        <tr>
-                                        <td>R04</td>
-                                        <td>1</td>
-                                        <td>24-Sept-2020 4:10PM</td>
-                                        <td>
-                                            <a href=""><i class="material-icons blue-text">create</i></a>
-                                            <a href=""><i class="material-icons red-text">delete</i></a>
-                                        </td>
-                                    </tr>
-                                        <tr>
-                                        <td>R05</td>
-                                        <td>5</td>
-                                        <td>24-Feb-2020 4:10PM</td>
-                                        <td>
-                                            <a href=""><i class="material-icons blue-text">create</i></a>
-                                            <a href=""><i class="material-icons red-text">delete</i></a>
-                                        </td>
-                                    </tr>
-
+                                    </tr>";
+                                    ?>
+                                    <div id='demo-modal' class='modal modal-learning-popup'>
+                                        <div class='modal-content'>
+                                        <h4>Are you sure?</h4>
+                                        <p>Do you really want to delete this room?</p>
+                                        </div>
+                                        <div class='modal-footer-LearningRoom'>
+                                            <!-- <a href='LearningRoomList?action=delete&id=<?=$value->id?>' name="nom" class=" ">Delete</a> -->
+                                            <span class="delete-btn-learningRoom waves-effect waves-light btn-small"></span>
+                                            <a href="#!" class="modal-action modal-close waves-effect waves-white btn-flat">Close</a>
+                                            <input type="text" name="nom">
+                                        </div>
+                                    </div>
+                                <?php }  ?>
+                                     
+                                     
                                     </tbody>
                                 </table>
                                 <ul class="pagination">
@@ -113,4 +102,6 @@
             </div>
         </div>
     </main>
-<?php require_once "../includes/adminFooter.php" ?>
+<?php
+         //}
+ require_once "../includes/adminFooter.php" ?>

@@ -1,12 +1,12 @@
 <?php
-
 // use \PDO;
+// DB does all CRUD operations
+// normal learning room do get set me
+
 require_once "models/LearningRoom.php";
 require_once "connect.php";
 
-
-
-class LearningRoomDB extends Database
+class LearningRoomDb extends Database
 {
     public function __construct()
     {
@@ -17,15 +17,13 @@ class LearningRoomDB extends Database
         $sql = "SELECT * FROM learning_rooms";
         $pdostm = parent::getDb()->prepare($sql);
         $pdostm->execute();
-
         $learningrooms = $pdostm->fetchAll(PDO::FETCH_OBJ);
         return $learningrooms;
-
     }
 
     public function Add($LearningRoom)
     {
-        $sql = "INSERT INTO learning_rooms (room_number) VALUES (:room_number)";
+        $sql = "INSERT INTO learning_rooms (room_number,created_datetime) VALUES (:room_number,CURRENT_TIMESTAMP())";
         $pdostm = parent::getDb()->prepare($sql);
         $room_number = $LearningRoom->getRoomNumber();
         $pdostm->bindParam(':room_number', $room_number);        
@@ -35,41 +33,37 @@ class LearningRoomDB extends Database
 
     }
 
-    public function Update($JobPost,$id)
+    public function Update($learningRoom,$id)
     {
-        $sql = "Update job_post set title = :jobtitle, description = :jobdescription where id= :id";
+        $sql = "Update learning_rooms set room_number = :room_number where id= :id";
         $pdostm = parent::getDb()->prepare($sql);
-        $JobTitle = $JobPost->getJobTitle();
-        $JobDesc = $JobPost->getJobTitle();
-        $pdostm->bindParam(':jobtitle', $JobTitle);
-        $pdostm->bindParam(':jobdescription', $JobDesc);
+   
+        $getRoomNo = $learningRoom->getRoomNumber();
+        $pdostm->bindParam(':room_number', $getRoomNo);
         $pdostm->bindParam(':id', $id);
 
         $numRowsAffected = $pdostm->execute();
         return $numRowsAffected;
-
     }
 
-    public function Delete($id)
+    public function Delete($room_number)
     {
-        $sql = "DELETE FROM job_post WHERE id = :id";
+        $sql = "DELETE FROM learning_rooms WHERE room_number = :room_number";
 
         $pst = parent::getDb()->prepare($sql);
-        $pst->bindParam(':id', $id);
+        $pst->bindParam(':room_number', $room_number);
         $count = $pst->execute();
         return $count;
-
     }
 
-    public function Get($id)
-    {
-        $sql = "select * from job_post where id = :id";
+    public function Get($room_number)
+    {   
+        $sql = "select * from learning_rooms where room_number = :room_number";
         $pdostm = parent::getDb()->prepare($sql);
-        $pdostm->bindParam(':id', $id);
+        $pdostm->bindParam(':room_number', $room_number);
         $pdostm->execute();
-        $jobOpening = $pdostm->fetch(PDO::FETCH_OBJ);
-        return $jobOpening;
-
+        $roomno = $pdostm->fetch(PDO::FETCH_OBJ);
+        return $roomno;
     }
 
 }

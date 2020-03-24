@@ -12,6 +12,12 @@ $(document).ready(function(){
     $('.datepicker').datepicker();
     $('select').formSelect();
     $('.tabs').tabs();
-    $('.modal').modal();
-});
-  
+    // $('.modal').modal();
+  });
+  /**-----learning room js */
+  $('.modal').modal();
+$('.modal-trigger').on('click', function(e) {
+    //  $('#demo-modal').find('input[name="nom"]').val($(this).data('nom'))
+    // $('#demo-modal').
+    $(".delete-btn-learningRoom").html("<a href='LearningRoomList.php?action=delete&id='>click</a>");
+  })

@@ -10,6 +10,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.datepicker');
   var elems = document.querySelectorAll('select');
+  var elems = document.querySelectorAll('.modal');
   // var instances = M.Datepicker.init(elems, options);
 });
 

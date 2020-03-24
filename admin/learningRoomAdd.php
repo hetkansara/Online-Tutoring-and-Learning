@@ -1,11 +1,8 @@
 <?php
-
-
 require_once "../includes/adminHeader.php" ?>
 <?php
 
     require_once "../database/LearningRoomDB.php";
-// require_once "../database/connect.php";
     require_once "../database/models/LearningRoom.php";
 
 $errorRoom = "";
@@ -14,21 +11,20 @@ if(isset($_POST['roomAdd'])) {
     
     if($roomNo === "" || $roomNo === null){
         $errorRoom = "Please enter a Room no";
+    }else{
+
+        $learningRoom = new LearningRoom($roomNo);  //passing data using get set
+        $learningRoomDB = new LearningRoomDB();     //initializing CRUD operation
+        // var_dump($learningRoomDB->Get($roomNo));        //passing Create->AddFunctn (getSetclass)
+        $getroom = $learningRoomDB->Get($roomNo);        //passing Create->AddFunctn (getSetclass)
+        if(is_bool($getroom)){
+            $errorRoom = "Room Added";
+            $learningRoomDB->Add($learningRoom);        //passing Create->AddFunctn (getSetclass)   
+        }else{
+            $errorRoom = "Room already exists";
+        }
     }
-    
-    $learningRoom = new LearningRoom($roomNo);
-    $learningRoomDB = new LearningRoomDB();
-    $learningRoomDB->Add($learningRoom);
-
-    // $db = Database::getDb();
-    //    $s = new LearningRoom();
-    //    $c = $s->Add($roomNo);
-    // var_dump($c);
-
-
-      
 }
-
 ?>
     <main>
         <div class="container">
@@ -47,7 +43,7 @@ if(isset($_POST['roomAdd'])) {
                                                 <label for="roomNo">Room No</label>
                                                 <span id="roomError"><?= $errorRoom; ?></span>
                                             </div>
-                                            
+                                                                                       
                                             <div class="input-field col s12">
                                                 <button class="btn waves-effect waves-light" name="roomAdd" type="submit"
                                                         name="action">Add Room

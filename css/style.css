@@ -312,3 +312,19 @@ textarea.materialize-textarea:focus:not([readonly]) {
 .mobileHamburger{
     color: white;
 }
+/*-----------------Shubham ---*/
+.cursor-pointer:hover{
+    cursor: pointer;
+}
+.modal-footer-LearningRoom{
+    padding: 10px 0 20px 0;
+}
+.modal-footer-LearningRoom a{
+    margin-left: 120px;
+}
+.modal-learning-popup{
+    width:35%;
+}
+.delete-btn-learningRoom{
+    background-color: #F15E5E;
+}
