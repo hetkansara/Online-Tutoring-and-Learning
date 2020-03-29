@@ -1,3 +1,14 @@
+<?php
+require_once '../utilities/Session.php';
+$sessionData = Session::getInstance();
+if(isset($sessionData->userId)) {
+    $username = $sessionData->firstName;
+}
+else
+{
+    header('Location: ../login.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +28,7 @@
         <li><a href="../admin/myProfile.php"><i class="material-icons">person_outline</i>Profile</a></li>
         <li><a href="../admin/changePassword.php"><i class="material-icons">security</i>Change Password</a></li>
         <li class="divider"></li>
-        <li><a href="#!"><i class="material-icons">keyboard_tab</i>Logout</a></li>
+        <li><a href="../logout.php"><i class="material-icons">keyboard_tab</i>Logout</a></li>
     </ul>
     <div class="navbar-fixed">
         <nav class="blue-grey" role="navigation">
@@ -25,7 +36,7 @@
                 <a id="logo-container" href="#" class="brand-logo logo-font">iTutor</a>
                 <ul class="right hide-on-med-and-down">
                     <li>
-                        <a class="dropdown-trigger" href="#!" data-target="dropdown1">Welcome, Admin<i
+                        <a class="dropdown-trigger" href="#!" data-target="dropdown1">Welcome, <?=$username?><i
                                     class="material-icons right">arrow_drop_down</i></a>
                     </li>
                 </ul>
@@ -43,7 +54,7 @@
                     <li class="divider"></li>
                     <li><a href="#!"><i class="material-icons">person_outline</i>Profile</a></li>
                     <li><a href="#!"><i class="material-icons">security</i>Change Password</a></li>
-                    <li><a href="#!"><i class="material-icons">keyboard_tab</i>Logout</a></li>
+                    <li><a href="logout.php"><i class="material-icons">keyboard_tab</i>Logout</a></li>
                 </ul>
                 <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons mobileHamburger">menu</i></a>
             </div>

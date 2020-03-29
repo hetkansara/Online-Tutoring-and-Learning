@@ -1,4 +1,7 @@
 <?php require_once "../includes/adminHeader.php" ?>
+<?php
+
+?>
     <main>
         <div class="container">
             <div class="section">
