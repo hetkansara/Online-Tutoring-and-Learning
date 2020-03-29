@@ -2,7 +2,7 @@
     if(!$_GET['id']) {
         header("Location:learningRoomList.php");
     }
-    require_once "../includes/adminHeader.php";
+   
 require_once "../database/LearningRoomDb.php";
 require_once "../database/classes/models/LearningRoom.php";
 
@@ -26,14 +26,15 @@ $roomExists="";
                 $learningRoom->setRoomNumber($_POST['updateRoomNo']);
                 echo $roomExists = "Room Updated";
                 $learningRoomDb->Update($learningRoom,$_GET['id']);        //passing object and id
-                // header("Location:LearningRoomList.php");
+                $addUpdateMsg = "Room updated";
+                header("Location:LearningRoomList.php");
             }else{
                 echo $roomExists = "Room already exists";
             }
         }
         
     }
-
+    require_once "../includes/adminHeader.php";
 ?>
     <main>
         <div class="container">
@@ -57,7 +58,9 @@ $roomExists="";
                                                 <button type="submit" class="btn waves-effect waves-light" type="submit"
                                                         name="update_room">Update Room
                                                 </button>
-                                                
+                                                <a class="btn waves-effect waves-light"
+                                                    href="LearningRoomList.php">Back to Rooms
+                                                    </a>
                                             </div>
                                     </form>
                                 </div>
