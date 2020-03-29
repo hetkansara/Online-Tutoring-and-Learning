@@ -50,4 +50,17 @@ class UserContext extends Database
         return $user;
     }
 
+    public function CheckValidUserCredentials($email, $password)
+    {
+        $sql = "select * from users where LOWER(email) = :email AND user_password = :password";
+        $pdostm = parent::getDb()->prepare($sql);
+        $email = strtolower($email);
+        $password = $encryptPassword = password_hash($password, PASSWORD_DEFAULT);;
+        $pdostm->bindParam(':email', $email);
+        $pdostm->bindParam(':password', $password);
+        $pdostm->execute();
+        $user = $pdostm->fetch(PDO::FETCH_OBJ);
+        return $user;
+    }
+
 }
