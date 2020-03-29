@@ -20,7 +20,7 @@ class Database
                 self::$dbcon = new \PDO(self::$dsn, self::$user, self::$password);
             } catch (PDOException $e) {
                 $msg = $e->getMessage();
-                include "customError.php";
+                echo $msg;
                 exit();
             }
         }

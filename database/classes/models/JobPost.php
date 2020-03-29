@@ -1,5 +1,6 @@
 <?php
 
+// Developer : Priyanka Khadilkar
 class JobPost
 {
     private $jobTitle;
