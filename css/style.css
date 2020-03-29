@@ -66,6 +66,10 @@ nav .dropdown-content {
 
 /* Developer: Het Kansara*/
 
+.hidden {
+    display: none;
+}
+
 .margin-bottom-none {
     margin-bottom: 0 !important;
 }
