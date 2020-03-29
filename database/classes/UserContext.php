@@ -1,5 +1,5 @@
 <?php
-
+//Developer Priyanka Khadilkar
 require_once "connect.php";
 require_once "models/User.php";
 
@@ -39,6 +39,54 @@ class UserContext extends Database
         return $numRowsAffected;
     }
 
+    public function Get($id)
+    {
+        $sql = "select * from users where id = :id";
+        $pdostm = parent::getDb()->prepare($sql);
+        $pdostm->bindParam(':id', $id);
+        $pdostm->execute();
+        $user = $pdostm->fetch(PDO::FETCH_OBJ);
+        return $user;
+    }
+
+    public function UpdateProfile($User, $id)
+    {
+
+        $sql = "Update users set first_name = :first_name, last_name = :last_name , email = :email ,phone_number = :phone_number ,date_of_birth = :date_of_birth ,updated_datetime= :updated_datetime where id= :id";
+        $date = date('Y-m-d H:i:s');
+        $pdostm = parent::getDb()->prepare($sql);
+
+        $firstName = $User->getFirstName();
+        $lastName = $User->getLastName();
+        $email = $User->getEmail();
+        $phoneNumber = $User->getPhoneNumber();
+        $dateOfBirth = $User->getDateOfBirth();
+
+        $pdostm->bindParam(':first_name', $firstName);
+        $pdostm->bindParam(':last_name', $lastName);
+        $pdostm->bindParam(':email', $email);
+        $pdostm->bindParam(':phone_number', $phoneNumber);
+        $pdostm->bindParam(':date_of_birth', $dateOfBirth);
+        $pdostm->bindParam(':updated_datetime', $date);
+        $pdostm->bindParam(':id', $id);
+
+        $numRowsAffected = $pdostm->execute();
+        return $numRowsAffected;
+    }
+
+    public function CheckUserExistWithEmailExceptSelf($email, $userId)
+    {
+        $sql = "select * from users where LOWER(email) = :email AND id !=:id";
+        $pdostm = parent::getDb()->prepare($sql);
+        $email = strtolower($email);
+        $pdostm->bindParam(':email', $email);
+        $pdostm->bindParam(':id', $userId);
+        $pdostm->execute();
+        $user = $pdostm->fetch(PDO::FETCH_OBJ);
+        return $user;
+    }
+
+
     public function CheckUserExistWithEmail($email)
     {
         $sql = "select * from users where LOWER(email) = :email";
@@ -59,15 +107,15 @@ class UserContext extends Database
         $pdostm->execute();
         $user = $pdostm->fetch(PDO::FETCH_OBJ);
         $returnUser = null;
-        if($user!=null){
-            $isValid_password = password_verify($password,$user->user_password);
-            if($isValid_password)
-            {
+        if ($user != null) {
+            $isValid_password = password_verify($password, $user->user_password);
+            if ($isValid_password) {
                 $returnUser = $user;
             }
         }
         var_dump($returnUser);
         return $returnUser;
     }
+
 
 }
