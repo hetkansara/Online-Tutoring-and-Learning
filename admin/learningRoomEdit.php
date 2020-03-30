@@ -22,15 +22,15 @@ $roomExists="";
             $learningRoomDb = new LearningRoomDb();     //initializing CRUD operation
             $getroom = $learningRoomDb->Get($_POST['updateRoomNo']);        //passing Create->AddFunctn (getSetclass)
 
-            if(is_bool($getroom)){
+            // if(is_bool($getroom)){
                 $learningRoom->setRoomNumber($_POST['updateRoomNo']);
                 echo $roomExists = "Room Updated";
                 $learningRoomDb->Update($learningRoom,$_GET['id']);        //passing object and id
                 $addUpdateMsg = "Room updated";
                 header("Location:LearningRoomList.php");
-            }else{
-                echo $roomExists = "Room already exists";
-            }
+            // }else{
+                // echo $roomExists = "Room already exists";
+            // }
         }
         
     }
@@ -51,7 +51,7 @@ $roomExists="";
                                             <div class="input-field col s12">
                                                 <input id="roomNo" name="updateRoomNo" type="text" value="<?= (isset($_GET['id']) ? $room_number : $_POST['updateRoomNo']);?>" class="validate">
                                                 <label for="roomNo">Room No</label>
-                                                <span><?=$roomExists; ?></span>
+                                                <span class="red-text"><?=$roomExists; ?></span>
                                             </div>  
 											
                                             <div class="input-field col s12">
