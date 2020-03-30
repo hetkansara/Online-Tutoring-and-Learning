@@ -59,7 +59,6 @@ if (isset($_POST["ForgotPassword"])) {
                 $link = ConstantStr::ResetPasswordlink . "?code=" . $verificationCode . "&id=" . $userExist->id;
                 $emailBody = EmailUtility::ForgotPasswordTemplate($userExist->first_name, $link);
                 $isEmailSent = EmailUtility::SendEmail($Email, $userExist->first_name, "iTutor - Reset Password", $emailBody, true);
-                var_dump($isEmailSent);
                 if ($isEmailSent) {
                     $ErrorMsg = "<span class='green-text'>Password reset link has been sent to your email.</span>";
                 }
