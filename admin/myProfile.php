@@ -23,10 +23,10 @@ $userId = $sessionData->userId;
 
 $userContext = new UserContext();
 $userData = $userContext->Get($userId);
-if($userData !=null){
+if ($userData != null) {
     $firstname = $userData->first_name;
     $lastname = $userData->last_name;
-    $email = $userData ->email;
+    $email = $userData->email;
     $phoneNumber = $userData->phone_number;
     $date = date_create($userData->date_of_birth);
     $dob = date_format($date, "M d, Y");
@@ -115,8 +115,11 @@ if (isset($_POST["updateProfile"])) {
             $user = new User($firstname, $lastname, $email, "", $phoneNumber, $dateOfBirth, "", "");
             $userContext = new UserContext();
             $userUpdated = $userContext->UpdateProfile($user, $userId);
+            if ($userUpdated) {
+                $userExistMsg = "<span class='green-text'>Your Profile is updated successfully.</span>";
+            }
         } else {
-            $userExistMsg = "User is already exists with same email id.Please select another email id.";
+            $userExistMsg = "<span class='red-text'>User is already exists with same email id.Please select another email id.</span>";
         }
     }
 }
@@ -131,7 +134,7 @@ if (isset($_POST["updateProfile"])) {
                             <div class="card-content">
                                 <span class="card-title">My Profile</span>
                                 <div class="row">
-                                    <span class="red-text"><?= $userExistMsg ?></span>
+                                    <?= $userExistMsg ?>
                                 </div>
                                 <div class="row">
                                     <form method="post" class="col s12">
