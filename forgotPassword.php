@@ -27,7 +27,7 @@ function validateEmail($email)
     return $isValidEmail;
 }
 
-//Generate Random verification code for 
+//Generate Random verification code for
 function generateRandomString($length = 8)
 {
     $characters = '0123456789abcdefghijklmnopqrs092u3tuvwxyzaskdhfhf9882323ABCDEFGHIJKLMNksadf9044OPQRSTUVWXYZ';
@@ -83,7 +83,7 @@ if (isset($_POST["ForgotPassword"])) {
                                     <div class="row margin-bottom-none">
                                         <div class="input-field col s12 m">
                                             <i class="material-icons prefix">account_circle</i>
-                                            <input id="icon_prefix" value="<?= $Email ?>" name="email" type="text"
+                                            <input id="icon_prefix" value="<?= $Email ?>" name="email" type="email"
                                                    class="validate">
                                             <label for="icon_prefix">Email</label>
                                             <span class="helper-text red-text"><?= $EmailErr ?></span>
