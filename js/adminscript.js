@@ -1,5 +1,5 @@
-(function($){
-    $(function(){
+(function ($) {
+    $(function () {
         $(".dropdown-trigger").dropdown();
         $('.sidenav').sidenav();
 
@@ -8,14 +8,18 @@
 
 
 // Or with jQuery
-$(document).ready(function(){
+$(document).ready(function () {
     $('.datepicker').datepicker();
     $('select').formSelect();
     $('.tabs').tabs();
+
     // $('.modal').modal();
-  });
-  /**-----learning room js */
-  $('.modal').modal();
+
+
+});
+
+/**-----learning room js */
+$('.modal').modal();
 // $('.modal-trigger').on('click', function(e) {
 //     //  $('#demo-modal').find('input[name="nom"]').val($(this).data('nom'))
 //     // $('#demo-modal').

@@ -89,6 +89,18 @@ class UserContext extends Database
         return $numRowsAffected;
     }
 
+    public function UpdateVerificationCode($email, $verificationCode)
+    {
+        $sql = "Update users set verification_code = :verification_code where LOWER(email)= :email";
+        $pdostm = parent::getDb()->prepare($sql);
+        $email = strtolower($email);
+        $pdostm->bindParam(':verification_code', $verificationCode);
+        $pdostm->bindParam(':email', $email);
+
+        $numRowsAffected = $pdostm->execute();
+        return $numRowsAffected;
+    }
+
     public function CheckUserExistWithEmailExceptSelf($email, $userId)
     {
         $sql = "select * from users where LOWER(email) = :email AND id !=:id";
