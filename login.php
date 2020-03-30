@@ -1,7 +1,9 @@
 <?php require_once "includes/header.php" ?>
 
 <?php
-//Developer - Priyanka Khadilkar
+/*
+    Created by : Priyanka Khadilkar
+*/
 
 require_once 'database/classes/UserContext.php';
 require_once 'utilities/Session.php';

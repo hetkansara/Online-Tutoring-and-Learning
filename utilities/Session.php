@@ -2,8 +2,8 @@
 
 /*
     Use the static method getInstance to get the object.
-    Developer : Priyanka Khadilkar
-    Citation :
+    Created by : Priyanka Khadilkar
+    Citation :https://www.php.net/manual/en/function.session-start.php
 */
 class Session
 {

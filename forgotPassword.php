@@ -1,6 +1,8 @@
 <?php require_once "includes/header.php" ?>
 <?php
-
+/*
+    Created by : Priyanka Khadilkar
+*/
 require_once 'database/classes/UserContext.php';
 require_once 'utilities/EmailUtility.php';
 require_once 'utilities/ConstantStr.php';
@@ -42,7 +44,6 @@ function generateRandomString($length = 8)
 //When user clicks "Update" button
 if (isset($_POST["ForgotPassword"])) {
     $Email = $_POST["email"];
-
 
     $isFormValid = validateEmail($Email);
 

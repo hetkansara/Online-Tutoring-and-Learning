@@ -1,6 +1,8 @@
 <?php
 
-// Developer : Priyanka Khadilkar
+/*
+    Created by : Priyanka Khadilkar
+*/
 class JobPost
 {
     private $jobTitle;

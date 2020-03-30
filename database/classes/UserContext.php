@@ -1,5 +1,7 @@
 <?php
-//Developer Priyanka Khadilkar
+/*
+    Created by : Priyanka Khadilkar
+*/
 require_once "connect.php";
 require_once "models/User.php";
 
@@ -158,6 +160,22 @@ class UserContext extends Database
 
         }
         return $isValidPassword;
+    }
+
+    public function CheckVerificationCodeIsValid($verificationCode, $userId)
+    {
+        $isValidVerificationCode = false;
+        $sql = "select verification_code from users where id = :id";
+        $pdostm = parent::getDb()->prepare($sql);;
+        $pdostm->bindParam(':id', $userId);
+        $pdostm->execute();
+        $user = $pdostm->fetch();
+        $verification_code = $user['verification_code'];
+
+        if ($verification_code != null && $verification_code == $verificationCode) {
+            $isValidVerificationCode = true;
+        }
+        return $isValidVerificationCode;
     }
 
 

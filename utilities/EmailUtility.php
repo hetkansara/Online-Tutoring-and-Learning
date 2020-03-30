@@ -1,7 +1,9 @@
 <?php
+//Created by : Priyanka Khadilkar
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+require_once "ConstantStr.php";
 
 require_once "vendor/autoload.php";
 
@@ -19,8 +21,8 @@ class EmailUtility
         $mail->SMTPSecure = 'tls';                   // Set encryption type
         $mail->Port = 587;                           // Set TCP port
         $mail->SMTPAuth = true;                      // Enable SMTP authentication
-        $mail->Username = 'humberonlinetutor@gmail.com'; // Set SMTP username
-        $mail->Password = 'Humber@123';           // Set SMTP password
+        $mail->Username = ConstantStr::EmailUSerName; // Set SMTP username
+        $mail->Password = ConstantStr::EmailPassword;           // Set SMTP password
         $mail->SMTPOptions = array(
             'ssl' => array(
                 'verify_peer' => false,
@@ -29,7 +31,7 @@ class EmailUtility
             )
         );
         // Set From address, To address, subject, and body
-        $mail->setFrom('humberonlinetutor@gmail.com', 'iTutor');
+        $mail->setFrom(ConstantStr::EmailUSerName, 'iTutor');
         $mail->addAddress($to_address, $to_name);
         $mail->Subject = $subject;
         //$mail->AltBody = strip_tags($body);   // Body without HTML

@@ -1,5 +1,7 @@
 <?php
-
+/*
+    Created by : Priyanka Khadilkar
+*/
 require_once "connect.php";
 require_once "models/JobPost.php";
 
