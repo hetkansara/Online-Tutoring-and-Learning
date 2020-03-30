@@ -74,6 +74,21 @@ class UserContext extends Database
         return $numRowsAffected;
     }
 
+    public function UpdatePassword($password, $id)
+    {
+
+        $sql = "Update users set user_password = :user_password,updated_datetime = :updated_datetime where id= :id";
+        $date = date('Y-m-d H:i:s');
+        $pdostm = parent::getDb()->prepare($sql);
+
+        $pdostm->bindParam(':user_password', $password);
+        $pdostm->bindParam(':updated_datetime', $date);
+        $pdostm->bindParam(':id', $id);
+
+        $numRowsAffected = $pdostm->execute();
+        return $numRowsAffected;
+    }
+
     public function CheckUserExistWithEmailExceptSelf($email, $userId)
     {
         $sql = "select * from users where LOWER(email) = :email AND id !=:id";
@@ -113,8 +128,24 @@ class UserContext extends Database
                 $returnUser = $user;
             }
         }
-        var_dump($returnUser);
         return $returnUser;
+    }
+
+    public function CheckPasswordIsValid($password, $userId)
+    {
+        $isValidPassword = false;
+        $sql = "select user_password from users where id = :id";
+        $pdostm = parent::getDb()->prepare($sql);;
+        $pdostm->bindParam(':id', $userId);
+        $pdostm->execute();
+        $user = $pdostm->fetch();
+        $userPassword = $user['user_password'];
+
+        if ($userPassword != null && $userPassword != "") {
+            $isValidPassword = password_verify($password, $userPassword);
+
+        }
+        return $isValidPassword;
     }
 
 
