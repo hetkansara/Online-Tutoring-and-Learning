@@ -8,7 +8,9 @@ if(isset($_GET['deleteQuestion'])) {
   $mockTestQuestions->deleteMockTestOption($_GET['deleteOption']);
   header('location: mockTests.php?tab=questions');
 }
-$mockQuestions = $mockTestQuestions->getMockTestQuestions();
+
+$mockQuestions = $mockTestQuestions->getMockTestQuestions(null, (isset($_GET['searchQuestion']) && $_GET['searchQuestion'] != '') ? $_GET['searchQuestion'] : null, (isset($_GET['subjectQuestion']) && $_GET['subjectQuestion'] != '') ? $_GET['subjectQuestion'] : null, (isset($_GET['tutorQuestion']) && $_GET['tutorQuestion'] != '') ? $_GET['tutorQuestion'] : null);
+
 
 include_once "../database/classes/SubjectContext.php";
 $subject = new SubjectContext();
@@ -126,12 +128,14 @@ if(isset($_GET['tab'])) {
       </div>
       <div id="MockTestQuestions" class="col s12">
         <div class="row">
+        <form action="" method="GET">
           <div class="input-field col s12 m12 l4">
-            <input id="mock_test_questions_search" type="text" class="validate search-box">
+            <input type="hidden" value="questions" name="tab">
+            <input id="mock_test_questions_search" type="text" name="searchQuestion" class="validate search-box">
             <label for="mock_test_questions_search" class="serach-label">Search Mock Test Questions...</label>
           </div>
           <div class="input-field col s12 m12 l3">
-          <select class="browser-default">
+            <select class="browser-default" name="tutorQuestion">
               <option value='' selected>---Select Tutor---</option>
               <?php
                 foreach ($tutors as $tutor) { 
@@ -141,7 +145,7 @@ if(isset($_GET['tab'])) {
             </select>
           </div>
           <div class="input-field col s12 m12 l3">
-            <select class="browser-default">
+            <select class="browser-default" name="subjectQuestion">
             <option value='' selected>---Select Subject---</option>
             <?php
               foreach ($subjects as $subject) { 
@@ -155,6 +159,7 @@ if(isset($_GET['tab'])) {
               <i class="material-icons right">search</i>
             </button>
           </div>
+        </form>
         </div>
         <a title="Add Mock Test Question" href="addUpdateMockTestQuestion.php?action=Add" class="btn-floating btn-large green floatright floating-btn">
           <i class="large material-icons">add</i>

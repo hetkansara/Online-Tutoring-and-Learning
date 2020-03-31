@@ -10,15 +10,38 @@ class MockTestQuestionContext extends Database
     {
     }
 
-    public function getMockTestQuestions($questionID = null)
+    public function getMockTestQuestions($questionID = null, $searchVal = null, $subjectID = null, $tutorID = null)
     {
-        $sql = "select * from mock_questions";
+        $sql = "select * from mock_questions ";
+        $pdostm = parent::getDb()->prepare($sql);
+        $where = false;
+        if($questionID != null) {
+            $sql .= ($where ? " AND " : " WHERE ") . " id = :mock_question_id";
+            $where = true;
+        }
+        if($searchVal != null) {
+            $sql .= ($where ? " AND " : " WHERE ") . " question like '%$searchVal%'"; 
+            $where = true;
+        }
+        if($subjectID != null) {
+            $sql .= ($where ? " AND " : " WHERE ") . " subject_id = :subject_id"; 
+            $where = true;
+        }
+        if($tutorID != null) {
+            $sql .= ($where ? " AND " : " WHERE ") . " tutor_id = :tutor_id"; 
+            $where = true;
+        }
         $pdostm = parent::getDb()->prepare($sql);
         if($questionID != null) {
-            $sql = "select * from mock_questions where id = :mock_question_id";
-            $pdostm = parent::getDb()->prepare($sql);
             $pdostm->bindParam(':mock_question_id', $questionID); 
         }
+        if($subjectID != null) {
+            $pdostm->bindParam(':subject_id', $subjectID);  
+        }
+        if($tutorID != null) {
+            $pdostm->bindParam(':tutor_id', $tutorID);  
+        }
+
         $pdostm->execute();
         $mockQuestions = $pdostm->fetchAll(PDO::FETCH_ASSOC);
         $tutor = new TutorContext();
