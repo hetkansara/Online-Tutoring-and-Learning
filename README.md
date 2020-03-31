@@ -43,6 +43,10 @@ includes following functionality.
 
 ## 4) Kshitija
 
-
+  1] Feature: FAQ 
+  -Add new FAQ
+  -List all FAQ
+  -Update FAQ
+  -Delete FAQ
 
 ## 5) Maitri
