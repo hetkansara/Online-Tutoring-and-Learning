@@ -28,7 +28,7 @@
         }
 
         public function updateContact($id, $heading, $description, $email_title, $email, $phone_title, $phone, $address_title, $address, $latitude, $longitude, $user_name_title, $user_phone_title, $user_email_title, $subject_title, $message_title,$db){
-            $sql = "Update contact_us
+            $sql = "UPDATE contact_us
                     set heading = :heading,
                     description = :description,
                     email_title = :email_title,
