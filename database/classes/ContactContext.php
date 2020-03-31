@@ -19,24 +19,6 @@
         }
 
         public function addContact($heading, $description, $email_title, $email, $phone_title, $phone, $address_title, $address, $latitude, $longitude, $user_name_title, $user_phone_title, $user_email_title, $subject_title, $message_title, $db){
-            // echo "heading: " . $heading . "<br>";
-            // echo "description: " . $description . "<br>";
-            // echo "email_title: " . $email_title . "<br>";
-            // echo "email: " . $email . "<br>";
-            // echo "phone_title: " . $phone_title . "<br>";
-            // echo "phone: " . $phone . "<br>";
-            // echo "address_title: " . $address_title . "<br>";
-            // echo "address: " . $address . "<br>";
-            // echo "latitude: " . $latitude . "<br>";
-            // echo "longitude: " . $longitude . "<br>";
-            // echo "user_name_title: " . $user_name_title . "<br>";
-            // echo "user_phone_title: " . $user_phone_title . "<br>";
-            // echo "user_email_title: " . $user_email_title . "<br>";
-            // echo "subject_title: " . $subject_title . "<br>";
-            // echo "message_title: " . $message_title . "<br>";
-            // echo "db: " . $db . "<br>";
-            // echo "INSERT INTO contact_us (heading, description, email_title, email, phone_title, phone, address_title, address, latitude, longitude, user_name_title, user_phone_title, user_email_title, subject_title, message_title)
-            // VALUES ('$heading', '$description', '$email_title', '$email', '$phone_title', '$phone', '$address_title', '$address', '$latitude', '$longitude', '$user_name_title', '$user_phone_title', '$user_email_title', '$subject_title', '$message_title')";
 
             $sql = "INSERT INTO contact_us (heading, description, email_title, email, phone_title, phone, address_title, address, latitude, longitude, user_name_title, user_phone_title, user_email_title, subject_title, message_title)
             VALUES (:heading, :description, :email_title, :email, :phone_title, :phone, :address_title, :address, :latitude, :longitude, :user_name_title, :user_phone_title, :user_email_title, :subject_title, :message_title)";
