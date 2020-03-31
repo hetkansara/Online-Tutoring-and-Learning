@@ -26,7 +26,7 @@ includes following functionality.
 ## 2) Het
   - Feature One: Mock Test Questions Management
   1. Mock Test Management > admin/mockTests.php > Mock Test Questions
-  2. admin/mockTests.php [CRUD on Mock Test Question & Options 
+  2. admin/mockTests.php [CRUD on Mock Test Question & Options ]
 
 
 ## 3) Shubham
