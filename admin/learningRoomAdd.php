@@ -43,7 +43,7 @@ require_once "../includes/adminHeader.php";
                                             <div class="input-field col s12">
                                                 <input id="roomNo" name="roomNo" type="text" class="validate">
                                                 <label for="roomNo">Room No</label>
-                                                <span id="roomError"><?= $errorRoom; ?></span>
+                                                <span id="roomError" class="red-text"><?= $errorRoom; ?></span>
                                             </div>
                                                                                        
                                             <div class="input-field col s12">

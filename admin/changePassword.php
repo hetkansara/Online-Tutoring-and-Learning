@@ -76,8 +76,14 @@ if (isset($_POST["changePassword"])) {
             $userContext = new UserContext();
             $EncryptedPassword = password_hash($ConfirmNewPassword, PASSWORD_DEFAULT);
             $userUpdated = $userContext->UpdatePassword($EncryptedPassword, $userId);
+            if ($userUpdated) {
+                $OldPassword = "";
+                $NewPassword = "";
+                $ConfirmNewPassword = "";
+                $ErrorMsg = "<span class='green-text'>Your Password has been changed successfully.</span>";
+            }
         } else {
-            $ErrorMsg = "Please Enter correct Old password.";
+            $ErrorMsg = "<span class='red-text'>Please Enter correct Old password.</span>";
         }
     }
 }
@@ -90,7 +96,7 @@ if (isset($_POST["changePassword"])) {
                         <div class="card">
                             <div class="card-content">
                                 <span class="card-title">Change Password</span>
-                                <div class="row"><span class="red-text"><?= $ErrorMsg ?></span></div>
+                                <div class="row"><?= $ErrorMsg ?></div>
                                 <div class="row">
                                     <form method="post" class="col s12">
                                         <div class="row margin-bottom-none">
