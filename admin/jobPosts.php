@@ -22,7 +22,7 @@ if (isset($_POST["deleteJobPost"])) {
         $jobPostDb = new JobPostContext();
         $jobPosts = $jobPostDb->ListAll();
     } else {
-        echo "problem Listing Data data";
+        echo "problem Listing Data";
     }
 }
 
