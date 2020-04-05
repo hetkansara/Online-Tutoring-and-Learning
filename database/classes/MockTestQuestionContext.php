@@ -149,6 +149,14 @@ class MockTestQuestionContext extends Database
             $pdostm->bindParam(':answer', $optionID);
             $pdostm->bindParam(':questionID', $values['questionID']);
             $pdostm->execute();
+        } else if(!isset($values['isAnswer']) && $optionID != null) {
+            $question = self::getAnswerOfTheQuestion($values['questionID']);
+            if($question['answer'] == $optionID) {
+                $sql = "UPDATE mock_questions SET answer=NULL WHERE id = :questionID";
+                $pdostm = parent::getDb()->prepare($sql);
+                $pdostm->bindParam(':questionID', $values['questionID']);
+                $pdostm->execute();
+            }
         }
     }
 
