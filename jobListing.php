@@ -53,7 +53,7 @@ if (isset($_POST["searchJobPost"])) {
                                                 </div>
                                                 <div class="card-action add-contact-flex">
                                                     <!-- link for view job description to the job post -->
-                                                    <a href="jobPostView.php?id=<?= $jobPost->id ?>"
+                                                    <a href="jobApply.php?id=<?= $jobPost->id ?>"
                                                        title="View full job description"
                                                        class="btn waves-effect waves-light">View Job Description &
                                                         Apply</a>

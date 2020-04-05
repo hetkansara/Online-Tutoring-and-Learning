@@ -34,7 +34,7 @@ if (isset($_GET['id'])) {
                         <div class="card-content">
                             <span class="card-title"><?= $jobTitle ?></span>
                             <div class="row">
-                                <form method="post" class="col s12">
+                                <div class="col s12">
                                     <div class="row margin-bottom-none">
                                         <div class="input-field col s12">
                                             <?= $jobDescription ?>
@@ -48,7 +48,7 @@ if (isset($_GET['id'])) {
                                                href="jobPosts.php">Back to List
                                             </a>
                                         </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
