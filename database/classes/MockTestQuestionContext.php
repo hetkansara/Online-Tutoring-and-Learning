@@ -59,6 +59,14 @@ class MockTestQuestionContext extends Database
         }
     }
 
+    public function getAnswerOfTheQuestion($questionID) {
+        $sql = "select answer from mock_questions where id = :id";
+        $pdostm =  parent::getDb()->prepare($sql);
+        $pdostm->bindParam(':id', $questionID); 
+        $pdostm->execute();
+        return $pdostm->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function getMockTestQuestionOptions($questionID, $optionID = null) {
         $sql = "select * from mock_questions_options where mock_question_id = :id";
         if($optionID != null) {
@@ -72,24 +80,14 @@ class MockTestQuestionContext extends Database
         if($optionID == null) {
             $options = $pdostm->fetchAll(PDO::FETCH_ASSOC);
             for($i = 0; $i < count($options); $i++) {
-                // $options = $pdostm->fetch(PDO::FETCH_ASSOC);
-                $sql = "select answer from mock_questions where id = :id";
-                $pdostm =  parent::getDb()->prepare($sql);
-                $pdostm->bindParam(':id', $options[$i]['mock_question_id']); 
-                $pdostm->execute();
-                $question = $pdostm->fetch(PDO::FETCH_ASSOC);
+                $question = self::getAnswerOfTheQuestion($options[$i]['mock_question_id']);
                 $options[$i]['isAnswer'] = ($question['answer'] == $options[$i]['id']) ? true : false;
             }
         } else {
             $options = $pdostm->fetch(PDO::FETCH_ASSOC);
-            $sql = "select answer from mock_questions where id = :id";
-            $pdostm =  parent::getDb()->prepare($sql);
-            $pdostm->bindParam(':id', $options['mock_question_id']); 
-            $pdostm->execute();
-            $question = $pdostm->fetch(PDO::FETCH_ASSOC);
+            $question = self::getAnswerOfTheQuestion($options['mock_question_id']);
             $options['isAnswer'] = ($question['answer'] == $options['id']) ? true : false;
         }
-        // $options = ($optionID == null) ? $pdostm->fetchAll(PDO::FETCH_ASSOC) : $pdostm->fetch(PDO::FETCH_ASSOC);
         return $options;
     }
 
@@ -119,6 +117,10 @@ class MockTestQuestionContext extends Database
     }
 
     public function deleteMockTestQuestion($questionID) {
+        $options = self::getMockTestQuestionOptions($questionID);
+        foreach($options as $option) {
+            self::deleteMockTestOption($option['id']);
+        }
         $sql = "delete from mock_questions where id = :question_id";
         $pdostm = parent::getDb()->prepare($sql);
         $pdostm->bindParam(':question_id', $questionID);

@@ -3,7 +3,7 @@ include_once "../database/classes/MockTestQuestionContext.php";
 $mockTestQuestions = new MockTestQuestionContext();
 if(isset($_GET['deleteQuestion'])) {
   $mockTestQuestions->deleteMockTestQuestion($_GET['deleteQuestion']);
-  header('location: mockTests.php?tab=questions');
+  // header('location: mockTests.php?tab=questions');
 } else if(isset($_GET['deleteOption'])) {
   $mockTestQuestions->deleteMockTestOption($_GET['deleteOption']);
   header('location: mockTests.php?tab=questions');
