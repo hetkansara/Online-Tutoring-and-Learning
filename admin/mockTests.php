@@ -181,7 +181,7 @@ if(isset($_GET['tab'])) {
                 ?>
                   <tr>
                     <td><?= $index; ?></td>
-                    <td><?= $option['option_value']; ?></td>
+                    <td><?= $option['option_value']; ?> <?= $option['isAnswer'] ? "<span class='new badge' data-badge-caption='Answer'></span>" : ""; ?></td>
                     <td><a href='addUpdateMockTestOption.php?action=Update&optionID=<?= $option['id']; ?>&questionID=<?= $mockQuestion['id']; ?>'>Edit</a></td>
                     <td>
                       <a class='waves-effect waves-light modal-trigger' href="#optionDeleteModel<?= $option['id']; ?>">Delete</a>

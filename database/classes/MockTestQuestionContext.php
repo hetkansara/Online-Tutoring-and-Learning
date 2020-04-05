@@ -68,7 +68,28 @@ class MockTestQuestionContext extends Database
         $id = ($optionID != null) ? $optionID : $questionID;
         $pdostm->bindParam(':id', $id); 
         $pdostm->execute();
-        $options = ($optionID == null) ? $pdostm->fetchAll(PDO::FETCH_ASSOC) : $pdostm->fetch(PDO::FETCH_ASSOC);
+        $options = null;
+        if($optionID == null) {
+            $options = $pdostm->fetchAll(PDO::FETCH_ASSOC);
+            for($i = 0; $i < count($options); $i++) {
+                // $options = $pdostm->fetch(PDO::FETCH_ASSOC);
+                $sql = "select answer from mock_questions where id = :id";
+                $pdostm =  parent::getDb()->prepare($sql);
+                $pdostm->bindParam(':id', $options[$i]['mock_question_id']); 
+                $pdostm->execute();
+                $question = $pdostm->fetch(PDO::FETCH_ASSOC);
+                $options[$i]['isAnswer'] = ($question['answer'] == $options[$i]['id']) ? true : false;
+            }
+        } else {
+            $options = $pdostm->fetch(PDO::FETCH_ASSOC);
+            $sql = "select answer from mock_questions where id = :id";
+            $pdostm =  parent::getDb()->prepare($sql);
+            $pdostm->bindParam(':id', $options['mock_question_id']); 
+            $pdostm->execute();
+            $question = $pdostm->fetch(PDO::FETCH_ASSOC);
+            $options['isAnswer'] = ($question['answer'] == $options['id']) ? true : false;
+        }
+        // $options = ($optionID == null) ? $pdostm->fetchAll(PDO::FETCH_ASSOC) : $pdostm->fetch(PDO::FETCH_ASSOC);
         return $options;
     }
 
@@ -113,6 +134,14 @@ class MockTestQuestionContext extends Database
         $pdostm->bindParam(':optionValue', $values['optionValue']);
         $pdostm->bindParam(':questionID', $values['questionID']);  
         $pdostm->execute();
+
+        if(isset($values['isAnswer']) && $optionID != null) {
+            $sql = "UPDATE mock_questions SET answer=:answer WHERE id = :questionID";
+            $pdostm = parent::getDb()->prepare($sql);
+            $pdostm->bindParam(':answer', $optionID);
+            $pdostm->bindParam(':questionID', $values['questionID']);
+            $pdostm->execute();
+        }
     }
 
     public function deleteMockTestOption($optionID) {
