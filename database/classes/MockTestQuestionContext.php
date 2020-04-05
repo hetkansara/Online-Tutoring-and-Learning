@@ -94,22 +94,28 @@ class MockTestQuestionContext extends Database
     }
 
     public function addUpdateMockTestQuestion($values, $questionID = null) {
+        var_dump($values);
         $datetime = (string) date('Y-m-d H:i:s', time());
         $sql = "INSERT INTO mock_questions(tutor_id, subject_id, question, marks, created_datetime) VALUES (:tutor_id, :subject_id, :question, :marks, :created_datetime)";
         $pdostm = parent::getDb()->prepare($sql);
+        try {
         if($questionID != null) {
-            $sql = "UPDATE mock_questions SET subject_id=:subject_id,question=:question,marks=:marks,updated_datetime=:updated_datetime where id = :questionID";
+            $sql = "UPDATE mock_questions SET tutor_id=:tutor_id,subject_id=:subject_id,question=:question,marks=:marks,updated_datetime=:updated_datetime where id = :questionID";
             $pdostm = parent::getDb()->prepare($sql);
             $pdostm->bindParam(':questionID', $questionID); 
             $pdostm->bindParam(':updated_datetime', $datetime);
         } else {
             $pdostm->bindParam(':created_datetime', $datetime);
         }
+        echo "UPDATE mock_questions SET tutor_id=".$values['tutor'].",subject_id=".$values['subject'].",question=".$values['questionValue'].",marks=".$values['marks'].",updated_datetime=".$datetime." where id = ".$questionID;
         $pdostm->bindParam(':tutor_id', $values['tutor']); 
         $pdostm->bindParam(':subject_id', $values['subject']); 
         $pdostm->bindParam(':question', $values['questionValue']); 
         $pdostm->bindParam(':marks', $values['marks']); 
         $pdostm->execute();
+    } catch(Exception $e) {
+        var_dump($e);
+    }
     }
 
     public function deleteMockTestQuestion($questionID) {
