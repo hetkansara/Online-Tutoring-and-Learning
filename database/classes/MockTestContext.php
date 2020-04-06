@@ -20,7 +20,7 @@ class MockTestContext extends Database
             $where = true;
         }
         if($searchVal != null) {
-            $sql .= ($where ? " AND " : " WHERE ") . " question like '%$searchVal%'"; 
+            $sql .= ($where ? " AND " : " WHERE ") . " title like '%$searchVal%'"; 
             $where = true;
         }
         if($subjectID != null) {
