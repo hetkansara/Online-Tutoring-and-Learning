@@ -1,9 +1,12 @@
 <?php
 
 require_once '../database/classes/JobApplicationContext.php';
+require_once '../utilities/EmailUtility.php';
+require_once '../utilities/ConstantStr.php';
 
 $messageErr = "";
 $applicantId = "";
+$ErrorMsg = "";
 
 if (isset($_GET["id"])) {
     $applicantId = $_GET["id"];
@@ -32,7 +35,11 @@ if (isset($_POST['sendEmail'])) {
 
     //check if user entered the data
     if (checkValidation($emailMessage) == true) {
-
+        $emailBody = EmailUtility::JobApplicationTemplate($jobApplication->firstname, $emailMessage);
+        $isEmailSent = EmailUtility::SendEmail($jobApplication->email, $jobApplication->firstname, "iTutor - Job Application", $emailBody, true);
+        if ($isEmailSent) {
+            $ErrorMsg = "<span class='green-text'>Your message has been sent on Job applicant's email.</span>";
+        }
     }
 
 }
@@ -46,6 +53,9 @@ if (isset($_POST['sendEmail'])) {
                         <div class="card">
                             <div class="card-content">
                                 <span class="card-title">Send Email to Job Applicant</span>
+                                <div class="row">
+                                    <?= $ErrorMsg ?>
+                                </div>
                                 <div class="row">
                                     <form method="post" class="col s12">
                                         <div class="row margin-bottom-none">
