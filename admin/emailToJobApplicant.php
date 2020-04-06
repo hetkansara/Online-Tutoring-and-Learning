@@ -3,7 +3,14 @@
 require_once '../database/classes/JobApplicationContext.php';
 
 $messageErr = "";
+$applicantId = "";
 
+if (isset($_GET["id"])) {
+    $applicantId = $_GET["id"];
+}
+
+$jobApplicationContext = new  JobApplicationContext();
+$jobApplication = $jobApplicationContext->GetById($applicantId);
 
 function checkValidation($emailMessage)
 {
@@ -21,12 +28,10 @@ function checkValidation($emailMessage)
 //check if the form is submitted
 if (isset($_POST['sendEmail'])) {
     //get the values from form and assign to local variable
-    $emailMessage = $_POST['$message'];
-
+    $emailMessage = $_POST['message'];
 
     //check if user entered the data
     if (checkValidation($emailMessage) == true) {
-
 
     }
 
@@ -45,16 +50,19 @@ if (isset($_POST['sendEmail'])) {
                                     <form method="post" class="col s12">
                                         <div class="row margin-bottom-none">
                                             <div class="input-field col s12">
-                                                Name :
+                                                Name
+                                                : <?= $jobApplication->firstname; ?> <?= $jobApplication->lastname; ?>
                                             </div>
                                             <div class="input-field col s12">
-                                                Job Post :
+                                                Job Post : <?= $jobApplication->title; ?>
                                             </div>
                                             <div class="input-field col s12">
-                                                Phone Number :
+                                                Phone Number : <?= $jobApplication->phone_number; ?>
                                             </div>
                                             <div class="input-field col s12">
-                                                Resume :
+                                                <?php $filelink = '../Resume/' . $jobApplication->resume_filename; ?>
+                                                Resume : <a target="_blank"
+                                                            href="<?= $filelink ?>"><?= $jobApplication->resume_filename ?></a>
                                             </div>
                                             <div class="input-field col s12">
                                                 <textarea id="message" name="message"

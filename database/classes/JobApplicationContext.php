@@ -38,13 +38,22 @@ class JobApplicationContext extends Database
         return $numRowsAffected;
     }
 
-    public function ListAll(){
+    public function ListAll()
+    {
         $sql = "select j.id,j.firstname,j.lastname,j.email,j.job_id,jp.title,j.phone_number,j.resume_filename from job_applications j inner join job_post jp on j.job_id=jp.id";
         $pdostm = parent::getDb()->prepare($sql);
         $pdostm->execute();
-        $jobopenings = $pdostm->fetchAll(PDO::FETCH_OBJ);
-        return $jobopenings;
+        $jobApplications = $pdostm->fetchAll(PDO::FETCH_OBJ);
+        return $jobApplications;
     }
 
-
+    public function GetById($id)
+    {
+        $sql = "select j.id,j.firstname,j.lastname,j.email,j.job_id,jp.title,j.phone_number,j.resume_filename from job_applications j inner join job_post jp on j.job_id=jp.id where j.id = :id";
+        $pdostm = parent::getDb()->prepare($sql);
+        $pdostm->bindParam(':id', $id);
+        $pdostm->execute();
+        $jobopenings = $pdostm->fetch(PDO::FETCH_OBJ);
+        return $jobopenings;
+    }
 }
