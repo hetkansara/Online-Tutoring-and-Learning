@@ -59,6 +59,14 @@ class MockTestQuestionContext extends Database
         }
     }
 
+    public function getAnswerOfTheQuestion($questionID) {
+        $sql = "select answer from mock_questions where id = :id";
+        $pdostm =  parent::getDb()->prepare($sql);
+        $pdostm->bindParam(':id', $questionID); 
+        $pdostm->execute();
+        return $pdostm->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function getMockTestQuestionOptions($questionID, $optionID = null) {
         $sql = "select * from mock_questions_options where mock_question_id = :id";
         if($optionID != null) {
@@ -72,47 +80,47 @@ class MockTestQuestionContext extends Database
         if($optionID == null) {
             $options = $pdostm->fetchAll(PDO::FETCH_ASSOC);
             for($i = 0; $i < count($options); $i++) {
-                // $options = $pdostm->fetch(PDO::FETCH_ASSOC);
-                $sql = "select answer from mock_questions where id = :id";
-                $pdostm =  parent::getDb()->prepare($sql);
-                $pdostm->bindParam(':id', $options[$i]['mock_question_id']); 
-                $pdostm->execute();
-                $question = $pdostm->fetch(PDO::FETCH_ASSOC);
+                $question = self::getAnswerOfTheQuestion($options[$i]['mock_question_id']);
                 $options[$i]['isAnswer'] = ($question['answer'] == $options[$i]['id']) ? true : false;
             }
         } else {
             $options = $pdostm->fetch(PDO::FETCH_ASSOC);
-            $sql = "select answer from mock_questions where id = :id";
-            $pdostm =  parent::getDb()->prepare($sql);
-            $pdostm->bindParam(':id', $options['mock_question_id']); 
-            $pdostm->execute();
-            $question = $pdostm->fetch(PDO::FETCH_ASSOC);
+            $question = self::getAnswerOfTheQuestion($options['mock_question_id']);
             $options['isAnswer'] = ($question['answer'] == $options['id']) ? true : false;
         }
-        // $options = ($optionID == null) ? $pdostm->fetchAll(PDO::FETCH_ASSOC) : $pdostm->fetch(PDO::FETCH_ASSOC);
         return $options;
     }
 
     public function addUpdateMockTestQuestion($values, $questionID = null) {
+        var_dump($values);
         $datetime = (string) date('Y-m-d H:i:s', time());
         $sql = "INSERT INTO mock_questions(tutor_id, subject_id, question, marks, created_datetime) VALUES (:tutor_id, :subject_id, :question, :marks, :created_datetime)";
         $pdostm = parent::getDb()->prepare($sql);
+        try {
         if($questionID != null) {
-            $sql = "UPDATE mock_questions SET subject_id=:subject_id,question=:question,marks=:marks,updated_datetime=:updated_datetime where id = :questionID";
+            $sql = "UPDATE mock_questions SET tutor_id=:tutor_id,subject_id=:subject_id,question=:question,marks=:marks,updated_datetime=:updated_datetime where id = :questionID";
             $pdostm = parent::getDb()->prepare($sql);
             $pdostm->bindParam(':questionID', $questionID); 
             $pdostm->bindParam(':updated_datetime', $datetime);
         } else {
             $pdostm->bindParam(':created_datetime', $datetime);
         }
+        echo "UPDATE mock_questions SET tutor_id=".$values['tutor'].",subject_id=".$values['subject'].",question=".$values['questionValue'].",marks=".$values['marks'].",updated_datetime=".$datetime." where id = ".$questionID;
         $pdostm->bindParam(':tutor_id', $values['tutor']); 
         $pdostm->bindParam(':subject_id', $values['subject']); 
         $pdostm->bindParam(':question', $values['questionValue']); 
         $pdostm->bindParam(':marks', $values['marks']); 
         $pdostm->execute();
+    } catch(Exception $e) {
+        var_dump($e);
+    }
     }
 
     public function deleteMockTestQuestion($questionID) {
+        $options = self::getMockTestQuestionOptions($questionID);
+        foreach($options as $option) {
+            self::deleteMockTestOption($option['id']);
+        }
         $sql = "delete from mock_questions where id = :question_id";
         $pdostm = parent::getDb()->prepare($sql);
         $pdostm->bindParam(':question_id', $questionID);
@@ -141,6 +149,14 @@ class MockTestQuestionContext extends Database
             $pdostm->bindParam(':answer', $optionID);
             $pdostm->bindParam(':questionID', $values['questionID']);
             $pdostm->execute();
+        } else if(!isset($values['isAnswer']) && $optionID != null) {
+            $question = self::getAnswerOfTheQuestion($values['questionID']);
+            if($question['answer'] == $optionID) {
+                $sql = "UPDATE mock_questions SET answer=NULL WHERE id = :questionID";
+                $pdostm = parent::getDb()->prepare($sql);
+                $pdostm->bindParam(':questionID', $values['questionID']);
+                $pdostm->execute();
+            }
         }
     }
 

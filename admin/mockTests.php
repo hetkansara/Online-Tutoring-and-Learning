@@ -3,7 +3,7 @@ include_once "../database/classes/MockTestQuestionContext.php";
 $mockTestQuestions = new MockTestQuestionContext();
 if(isset($_GET['deleteQuestion'])) {
   $mockTestQuestions->deleteMockTestQuestion($_GET['deleteQuestion']);
-  header('location: mockTests.php?tab=questions');
+  // header('location: mockTests.php?tab=questions');
 } else if(isset($_GET['deleteOption'])) {
   $mockTestQuestions->deleteMockTestOption($_GET['deleteOption']);
   header('location: mockTests.php?tab=questions');
@@ -131,26 +131,26 @@ if(isset($_GET['tab'])) {
         <form action="" method="GET">
           <div class="input-field col s12 m12 l4">
             <input type="hidden" value="questions" name="tab">
-            <input id="mock_test_questions_search" type="text" name="searchQuestion" class="validate search-box">
+            <input id="mock_test_questions_search" type="text" name="searchQuestion" class="validate search-box" value="<?= isset($_GET['searchQuestion']) ? $_GET['searchQuestion'] : ""; ?>">
             <label for="mock_test_questions_search" class="serach-label">Search Mock Test Questions...</label>
           </div>
           <div class="input-field col s12 m12 l3">
             <select class="browser-default" name="tutorQuestion">
-              <option value='' selected>---Select Tutor---</option>
+              <option value='' <?= (isset($_GET['tutorQuestion']) && $_GET['tutorQuestion'] == $tutor['id']) ? "" : "selected"; ?>>---Select Tutor---</option>
               <?php
                 foreach ($tutors as $tutor) { 
               ?>
-                <option value="<?= $tutor['id']; ?>"><?= $tutor['first_name'] . " " . $tutor['last_name']; ?></option>
+                <option value="<?= $tutor['id']; ?>" <?= (isset($_GET['tutorQuestion']) && $_GET['tutorQuestion'] == $tutor['id']) ? "selected" : ""; ?>><?= $tutor['first_name'] . " " . $tutor['last_name']; ?></option>
               <?php } ?>
             </select>
           </div>
           <div class="input-field col s12 m12 l3">
             <select class="browser-default" name="subjectQuestion">
-            <option value='' selected>---Select Subject---</option>
+            <option value='' <?= (isset($_GET['subjectQuestion']) && $_GET['subjectQuestion'] == $subject['id']) ? "" : "selected"; ?>>---Select Subject---</option>
             <?php
               foreach ($subjects as $subject) { 
             ?>
-              <option value="<?= $subject['id']; ?>"><?= $subject['title']; ?></option>
+              <option value="<?= $subject['id']; ?>" <?= (isset($_GET['subjectQuestion']) && $_GET['subjectQuestion'] == $subject['id']) ? "selected" : ""; ?>><?= $subject['title']; ?></option>
               <?php } ?>
             </select>
           </div>
