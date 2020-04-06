@@ -6,19 +6,19 @@ class TutorAppointment
     private $tutor_id;
     private $subject_id;
     private $learning_room_id;
-    private $dateTime;
+    private $date_time;
     private $message;
     private $is_confirmed;
 
     
-    public function __construct($user_id, $tutor_id, $subject_id, $learning_room_id, $dateTime, $message, $is_confirmed)
+    public function __construct($user_id, $tutor_id, $subject_id, $learning_room_id, $date_time, $message, $is_confirmed)
     {
         // echo "Constructor user id value - ".$user_id;
         $this->setuserid($user_id);
         $this->settutorid($tutor_id);
         $this->setsubjectid($subject_id);
         $this->setlearningroomid($learning_room_id);
-        $this->setdatetime($dateTime);
+        $this->setdatetime($date_time);
         $this->setmessage($message);
         $this->setisconfirmed($is_confirmed);
     }
@@ -36,7 +36,7 @@ class TutorAppointment
         $this->learning_room_id = $value;
     }
     public function setdatetime($value){
-        $this->dateTime = $value;
+        $this->date_time = $value;
     }
     public function setmessage($value){
         $this->message = $value;
@@ -58,7 +58,7 @@ class TutorAppointment
         return $this->learning_room_id;
     }
     public function getdatetime()    {
-        return $this->dateTime;
+        return $this->date_time;
     }
     public function getmessage()    {
         return $this->message;

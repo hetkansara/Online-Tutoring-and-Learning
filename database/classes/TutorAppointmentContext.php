@@ -33,24 +33,25 @@ U.id AS users_id, U.first_name AS users_first_name, U.last_name AS user_last_nam
     }
     public function Add($TutorAppointmentContext)
     {
-        $sql = "INSERT INTO tutor_appointment_bookings (user_id, tutor_id, subject_id, learning_room_id, dateTime, message, is_confirmed,created_datetime) VALUES (:user_id,:tutor_id,:subject_id,:learning_room_id,:dateTime,:message,:is_confirmed,:created_datetime)";
+        $sql = "INSERT INTO tutor_appointment_bookings (user_id, tutor_id, subject_id, learning_room_id, date_time, message, is_confirmed,created_datetime) VALUES (:user_id,:tutor_id,:subject_id,:learning_room_id,:date_time,:message,:is_confirmed,:created_datetime)";
         $date = date('Y-m-d H:i:s');
         $pdostm = parent::getDb()->prepare($sql);
-        echo "User id : ".$TutorAppointmentContext->getuserid();
+        // echo "User id : ".$TutorAppointmentContext->getuserid();
+
         $user_id = $TutorAppointmentContext->getuserid();
         $tutor_id = $TutorAppointmentContext->gettutorid();
         $subject_id = $TutorAppointmentContext->getsubjectid();
         $learning_room_id = $TutorAppointmentContext->getlearningroomid();
-        $dateTime = $TutorAppointmentContext->getdatetime();
+        $date_time = $TutorAppointmentContext->getdatetime();
         $message = $TutorAppointmentContext->getmessage();
         $is_confirmed = $TutorAppointmentContext->getisconfirmed();
-
+        // echo "<br>is confirmed : ".$TutorAppointmentContext->getisconfirmed();
 
         $pdostm->bindParam(':user_id', $user_id);        
         $pdostm->bindParam(':tutor_id', $tutor_id);        
         $pdostm->bindParam(':subject_id', $subject_id);        
         $pdostm->bindParam(':learning_room_id', $learning_room_id);        
-        $pdostm->bindParam(':dateTime', $dateTime);        
+        $pdostm->bindParam(':date_time', $date_time);        
         $pdostm->bindParam(':message', $message);        
         $pdostm->bindParam(':is_confirmed', $is_confirmed);      
         $pdostm->bindParam(':created_datetime', $date);  
