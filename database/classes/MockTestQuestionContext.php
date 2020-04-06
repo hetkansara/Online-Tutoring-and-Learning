@@ -50,7 +50,7 @@ class MockTestQuestionContext extends Database
         {
             $mockQuestions[$index]['tutor'] = $tutor->getTutor($mockQuestions[$index]['tutor_id']);
             $mockQuestions[$index]['subject'] = $subject->getSubject($mockQuestions[$index]['subject_id']);
-            $mockQuestions[$index]['options'] = self::getMockTestQuestionOptions($mockQuestions[$index]['id']);
+            $mockQuestions[$index]['options'] = self::getMockTestQuestionOptions($mockQuestions[$index]['id']);       
         }
         if($questionID != null) { 
             return $mockQuestions[0];
