@@ -1,20 +1,37 @@
 <?php
 /* Developer : Priyanka Khadilkar
   * This file list all job post applications. we can search the job application listing according to
-  * Job title
+  * Job title.
+  * Only admin can access this List.
   */
 require_once "../includes/adminHeader.php" ?>
 <?php
 
-require_once '../database/classes/JobApplicationContext.php';
-require_once '../database/classes/JobPostContext.php';
+require_once "../vendor/autoload.php";
+
+//Declaring job Application search form variables
+$jobPostId = "";
+$searchKey = "";
 
 //Fetch all Job posts
 $jobApplicationsDb = new JobApplicationContext();
 $jobApplications = $jobApplicationsDb->ListAll();
 
+//Fetch all job post for binding into dropdown for search
 $jobPostDb = new JobPostContext();
 $jobPosts = $jobPostDb->ListAll();
+
+//If user clicks on the search button
+if(isset($_POST["searchJobApplication"])){
+    $searchKey = $_POST["searchKey"];
+    if(isset($_POST["jobPostId"]))
+    {
+        $jobPostId  = $_POST["jobPostId"];
+    }
+    //Search job application according to searchkeyword or selected job post.
+    $jobApplicationsDb = new JobApplicationContext();
+    $jobApplications = $jobApplicationsDb->Search($jobPostId,$searchKey);
+}
 
 ?>
     <main class="adminmain">
@@ -30,8 +47,9 @@ $jobPosts = $jobPostDb->ListAll();
                             <label for="searchKey" class="serach-label">Search Job applicants...</label>
                         </div>
                         <div class="input-field col s12 m12 l3">
-                            <select class="browser-default">
+                            <select name="jobPostId" class="browser-default">
                                 <option value="" disabled selected>Select Job Post
+                                    <!--Binding the job post dropdown -->
                                     <?php
                                     foreach ($jobPosts as $jobPost){
                                     ?>
@@ -42,7 +60,7 @@ $jobPosts = $jobPostDb->ListAll();
                             </select>
                         </div>
                         <div class="input-field col s12 m12 l2">
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Search
+                            <button class="btn waves-effect waves-light" type="submit" name="searchJobApplication">Search
                                 <i class="material-icons right">search</i>
                             </button>
                         </div>
@@ -64,6 +82,7 @@ $jobPosts = $jobPostDb->ListAll();
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    <!--Binding All job application into the table -->
                                     <?php foreach ($jobApplications as $jobApplication) { ?>
                                         <tr>
                                             <td><?= $jobApplication->firstname; ?> <?= $jobApplication->lastname; ?> </td>
@@ -80,18 +99,6 @@ $jobPosts = $jobPostDb->ListAll();
                                     <?php } ?>
                                     </tbody>
                                 </table>
-                                <ul class="pagination">
-                                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a>
-                                    </li>
-                                    <li class="red"><a href="#!">1</a></li>
-                                    <li class="waves-effect"><a href="#!">2</a></li>
-                                    <li class="waves-effect"><a href="#!">3</a></li>
-                                    <li class="waves-effect"><a href="#!">4</a></li>
-                                    <li class="waves-effect"><a href="#!">5</a></li>
-                                    <li class="waves-effect"><a href="#!"><i
-                                                    class="material-icons">chevron_right</i></a>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
                     </div>

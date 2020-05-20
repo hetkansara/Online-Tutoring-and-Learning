@@ -1,28 +1,49 @@
 <?php
+// include files
+// Mock Test Questions - database interaction
 include_once "../database/classes/MockTestQuestionContext.php";
 $mockTestQuestions = new MockTestQuestionContext();
-if(isset($_GET['deleteQuestion'])) {
-  $mockTestQuestions->deleteMockTestQuestion($_GET['deleteQuestion']);
-  // header('location: mockTests.php?tab=questions');
-} else if(isset($_GET['deleteOption'])) {
-  $mockTestQuestions->deleteMockTestOption($_GET['deleteOption']);
-  header('location: mockTests.php?tab=questions');
-}
-$mockQuestions = $mockTestQuestions->getMockTestQuestions(null, (isset($_GET['searchQuestion']) && $_GET['searchQuestion'] != '') ? $_GET['searchQuestion'] : null, (isset($_GET['subjectQuestion']) && $_GET['subjectQuestion'] != '') ? $_GET['subjectQuestion'] : null, (isset($_GET['tutorQuestion']) && $_GET['tutorQuestion'] != '') ? $_GET['tutorQuestion'] : null);
 
+// Mock Tests - database interaction
 include_once "../database/classes/MockTestContext.php";
 $mockTestsContext = new MockTestContext();
 
-$mockTests = $mockTestsContext->getMockTests(null, (isset($_GET['searchTest']) && $_GET['searchTest'] != '') ? $_GET['searchTest'] : null, (isset($_GET['subjectTest']) && $_GET['subjectTest'] != '') ? $_GET['subjectTest'] : null, (isset($_GET['tutorTest']) && $_GET['tutorTest'] != '') ? $_GET['tutorTest'] : null);
-
+// Subjects - database interaction
 include_once "../database/classes/SubjectContext.php";
 $subject = new SubjectContext();
-$subjects = $subject->getAllSubjects();
 
+// Tutors - database interaction
 include_once "../database/classes/TutorContext.php";
 $tutor = new TutorContext();
+
+// handle delete requests
+if(isset($_GET['deleteQuestion'])) {
+  // delete mock test question
+  $mockTestQuestions->deleteMockTestQuestion($_GET['deleteQuestion']);
+  header('location: mockTests.php?tab=questions');
+} else if(isset($_GET['deleteOption'])) {
+  // delete option from the question
+  $mockTestQuestions->deleteMockTestOption($_GET['deleteOption']);
+  header('location: mockTests.php?tab=questions');
+} else if(isset($_GET['deleteTest'])){
+  // delete mock test
+  $mockTestsContext->deleteMockTest($_GET['deleteTest']);
+  header('location: mockTests.php?tab=tests');
+}
+
+// fetch mock test questions
+$mockQuestions = $mockTestQuestions->getMockTestQuestions(null, (isset($_GET['searchQuestion']) && $_GET['searchQuestion'] != '') ? $_GET['searchQuestion'] : null, (isset($_GET['subjectQuestion']) && $_GET['subjectQuestion'] != '') ? $_GET['subjectQuestion'] : null, (isset($_GET['tutorQuestion']) && $_GET['tutorQuestion'] != '') ? $_GET['tutorQuestion'] : null);
+
+// fetch mock tests
+$mockTests = $mockTestsContext->getMockTests(null, (isset($_GET['searchTest']) && $_GET['searchTest'] != '') ? $_GET['searchTest'] : null, (isset($_GET['subjectTest']) && $_GET['subjectTest'] != '') ? $_GET['subjectTest'] : null, (isset($_GET['tutorTest']) && $_GET['tutorTest'] != '') ? $_GET['tutorTest'] : null);
+
+// fetch subjects
+$subjects = $subject->getAllSubjects();
+
+// fetch tutors
 $tutors = $tutor->getAllTutors();
 
+// set the tab back on refresh the page
 $tab = 'tests';
 if(isset($_GET['tab'])) {
   $tab = $_GET['tab'];
@@ -91,36 +112,34 @@ if(isset($_GET['tab'])) {
                             foreach($mockTests as $mockTest) {
                           ?>
                           <tr>
-                              <td><a href=""><?= $mockTest['title']; ?></a></td>
-                              <td><?= $mockTest['subject']['title']; ?></td>
+                              <td><a href="showMockTest.php?testID=<?= $mockTest['id']; ?>"><?= $mockTest['title']; ?></a></td>
+                              <td><?= $mockTest['subject'][0]['title']; ?></td>
                               <td><?= $mockTest['marks']; ?></td>
                               <td>
-                                  <a href="updateUser.php"><i class="material-icons blue-text">create</i></a>
-                                  <a href=""><i class="material-icons red-text">delete</i></a>
+                                  <a href="addUpdateMockTest.php?action=Update&testID=<?= $mockTest['id']; ?>"><i class="material-icons blue-text">create</i></a>
+                                  <a class='waves-effect waves-light modal-trigger' href="#testDeleteModel<?= $mockTest['id']; ?>"><i class="material-icons red-text">delete</i></a>
+                                  <div id="testDeleteModel<?= $mockTest['id']; ?>" class="modal">
+                                    <div class="modal-content">
+                                      <h4>Are you sure you want to delete this Test?</h4>
+                                      <p><?= $mockTest['title']; ?></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <a href="#!" class="modal-close waves-effect waves-green btn-flat">No</a>
+                                      <a href="mockTests.php?deleteTest=<?= $mockTest['id']; ?>" class="modal-close waves-effect waves-green btn-flat">Yes</a>
+                                    </div>
+                                  </div>
                               </td>
                           </tr>
                           <?php } ?>
                           </tbody>
                       </table>
-                      <!-- <ul class="pagination">
-                          <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a>
-                          </li>
-                          <li class="red"><a href="#!">1</a></li>
-                          <li class="waves-effect"><a href="#!">2</a></li>
-                          <li class="waves-effect"><a href="#!">3</a></li>
-                          <li class="waves-effect"><a href="#!">4</a></li>
-                          <li class="waves-effect"><a href="#!">5</a></li>
-                          <li class="waves-effect"><a href="#!"><i
-                                          class="material-icons">chevron_right</i></a>
-                          </li>
-                      </ul> -->
                   </div>
               </div>
           </div>
         </div>
         <div class="row">
           <div class="direction-top">
-            <a title="Add Mock Test" href="#" class="btn-floating btn-large green floatright">
+            <a title="Add Mock Test" href="addUpdateMockTest.php?action=Add" class="btn-floating btn-large green floatright">
               <i class="large material-icons">add</i>
             </a>
           </div>

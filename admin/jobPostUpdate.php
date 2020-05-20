@@ -1,22 +1,31 @@
 <?php
+/* Developer : Priyanka Khadilkar
+  * This file contains form to update job post.
+ * Only admin can access this  List
+  */
+require_once "../vendor/autoload.php";
 
-require_once '../database/classes/JobPostContext.php';
-require_once '../database/classes/models/JobPost.php';
-
+//Declaring variables for validation message and form input
 $TitleValidationMsg = "";
 $DescriptionValidationMsg = "";
 $id = "";
 $jobTitle = "";
 $jobDescription = "";
 
+//Get the job detail on page load using the querystring value of job id
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $jobPostDb = new jobPostContext();
+
+    //Get the the job post detail from database using job post Id
+    $jobPostDb = new JobPostContext();
     $jobPost = $jobPostDb->Get($id);
+
+    //Assign the value to the input.
     $jobTitle = $jobPost->title;
     $jobDescription = $jobPost->description;
 }
 
+//function to validate form input.
 function checkValidation($jobTitle, $jobDescription)
 {
     global $TitleValidationMsg, $DescriptionValidationMsg;
@@ -40,7 +49,6 @@ if (isset($_POST['btnJobPostUpdate'])) {
     $jobDescription = $_POST['description'];
 
     //check if user entered the data
-
     if (checkValidation($jobTitle, $jobDescription) == true) {
         //Add Job Post if Job title and job description is entered.
         $jobPost = new JobPost($jobTitle, $jobDescription);
@@ -73,14 +81,19 @@ if (isset($_POST['btnJobPostUpdate'])) {
                                             <input id="title" value="<?= $jobTitle ?>" name="title" type="text"
                                                    class="validate">
                                             <label class="active" for="title">Title</label>
+                                            <span class="helper-text red-text"><?= $TitleValidationMsg ?></span>
+                                        </div>
+                                        <div class="col s12 paddingleft0">
+                                            <label class="fontsizeinherit" for="description">Description</label>
                                         </div>
                                         <div class="input-field col s12">
                                             <textarea id="description" name="description"
-                                                      class="validate materialize-textarea"
-                                                      data-length="120"><?= $jobDescription ?></textarea>
-                                            <label class="active" for="description">Description</label>
+                                                      class="validate summernote"><?= $jobDescription ?></textarea>
                                         </div>
-                                        <div class="input-field col s12">
+                                         <div class=" input-field col s12">
+                                            <span class="helper-text red-text"><?= $DescriptionValidationMsg ?></span>
+                                        </div>
+                                        <div class=" input-field col s12">
                                             <button class="btn waves-effect waves-light" type="submit"
                                                     name="btnJobPostUpdate">Submit
                                             </button>

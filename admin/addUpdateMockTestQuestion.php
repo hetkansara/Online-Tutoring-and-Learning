@@ -1,24 +1,36 @@
 <?php
-include_once "../database/classes/SubjectContext.php";
-$subject = new SubjectContext();
-$subjects = $subject->getAllSubjects();
 
-require_once "../database/classes/TutorContext.php";
-$tutor = new TutorContext();
-$tutors = $tutor->getAllTutors();
-
+// include files
+// Mock Test Questions - database interaction
 include_once "../database/classes/MockTestQuestionContext.php";
 $mockTestQuestions = new MockTestQuestionContext();
 
+// Subjects - database interaction
+include_once "../database/classes/SubjectContext.php";
+$subject = new SubjectContext();
+
+// Tutors - database interaction
+include_once "../database/classes/TutorContext.php";
+$tutor = new TutorContext();
+
+// fetch subjects
+$subjects = $subject->getAllSubjects();
+
+// fetch tutors
+$tutors = $tutor->getAllTutors();
+
+// check the page type (Add/Update)
 $page = isset($_GET['action']) ? $_GET['action'] : "Add";
 $mockQuestion;
 if($page == 'Update') {
   $questionID = isset($_GET['questionID']) ? $_GET['questionID'] : 0;
-  
+  // get mock test question data if the page is update
   $mockQuestion = $mockTestQuestions->getMockTestQuestions($questionID);
 }
 
+// check if the form is submitted
 if(isset($_POST['addUpdateMockTestQuestion'])) {
+  // add/update mock test question
   $mockTestQuestions->addUpdateMockTestQuestion($_POST, ($page == 'Add') ? null : $_POST['questionID']);
   header('Location: mockTests.php?tab=questions');
 }
@@ -58,7 +70,7 @@ if(isset($_POST['addUpdateMockTestQuestion'])) {
                     <?php if($page == 'Update') { ?>
                       <input type="hidden" class="validate" value="<?= $mockQuestion['id']; ?>" name="questionID">
                     <?php } ?>
-                    <input type="text" class="validate" value="<?= ($page == 'Update') ? htmlspecialchars($mockQuestion['question']) : ""; ?>" name="questioxnValue" required>
+                    <input type="text" class="validate" value="<?= ($page == 'Update') ? htmlspecialchars($mockQuestion['question']) : ""; ?>" name="questionValue" required>
                     <label for="mockTestQuestionInput" class="serach-label">Enter Question *</label>
                   </div>
                   <div class="input-field col s12">

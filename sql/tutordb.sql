@@ -40,11 +40,12 @@ CREATE TABLE tutors (
 
 CREATE TABLE subjects (
   id int PRIMARY KEY AUTO_INCREMENT,
-  title	varchar(100) NOT NULL,
-  description	varchar(100) NOT NULL,
+  title	varchar(200) NOT NULL,
+  description	varchar(1000) NOT NULL,
   subject_field	varchar(100) NOT NULL,
   created_datetime	datetime,
-  updated_datetime	datetime
+  updated_datetime	datetime,
+  FOREIGN KEY(tutor_id) REFERENCES tutors(id)
 );
 
 CREATE TABLE learning_materials (
@@ -178,6 +179,18 @@ CREATE TABLE tutor_subject	 (
   subject_id int NOT NULL,
   FOREIGN KEY(tutor_id) REFERENCES tutors(id),
   FOREIGN KEY(subject_id) REFERENCES tutors(id)
+);
+
+CREATE TABLE job_applications	 (
+  id int PRIMARY KEY AUTO_INCREMENT,
+  firstname	varchar(100) NOT NULL,
+  lastname	varchar(100) NOT NULL,
+  email	varchar(300) NOT NULL,
+  phone_number	varchar(300) NOT NULL,
+  resume_filename varchar(300) NOT NULL,
+  applied_on datetime,
+  job_id int NOT NULL,
+  FOREIGN KEY(job_id) REFERENCES job_post(id),
 );
 
 CREATE TABLE faqs	 (

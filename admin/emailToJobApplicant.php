@@ -1,20 +1,24 @@
 <?php
-
-require_once '../database/classes/JobApplicationContext.php';
-require_once '../utilities/EmailUtility.php';
-require_once '../utilities/ConstantStr.php';
+/* Developer : Priyanka Khadilkar
+  * form of Email to job application.
+ * Only admin can access this  List
+  */
+require_once "../vendor/autoload.php";
 
 $messageErr = "";
 $applicantId = "";
 $ErrorMsg = "";
 
+//Get the job applicant's id from the URL querystring.
 if (isset($_GET["id"])) {
     $applicantId = $_GET["id"];
 }
 
+//Get the job applicant's detail from the database
 $jobApplicationContext = new  JobApplicationContext();
 $jobApplication = $jobApplicationContext->GetById($applicantId);
 
+//Function to validate the form
 function checkValidation($emailMessage)
 {
     global $messageErr;
@@ -35,6 +39,8 @@ if (isset($_POST['sendEmail'])) {
 
     //check if user entered the data
     if (checkValidation($emailMessage) == true) {
+
+        //send email to job applicant.
         $emailBody = EmailUtility::JobApplicationTemplate($jobApplication->firstname, $emailMessage);
         $isEmailSent = EmailUtility::SendEmail($jobApplication->email, $jobApplication->firstname, "iTutor - Job Application", $emailBody, true);
         if ($isEmailSent) {
@@ -70,15 +76,22 @@ if (isset($_POST['sendEmail'])) {
                                                 Phone Number : <?= $jobApplication->phone_number; ?>
                                             </div>
                                             <div class="input-field col s12">
+                                                Email : <?= $jobApplication->email; ?>
+                                            </div>
+                                            <div class="input-field col s12">
                                                 <?php $filelink = '../Resume/' . $jobApplication->resume_filename; ?>
                                                 Resume : <a target="_blank"
                                                             href="<?= $filelink ?>"><?= $jobApplication->resume_filename ?></a>
                                             </div>
+                                            <div class="col s12 ">
+                                                <span class="fontsizeinherit" for="description">Email Message :</span>
+                                            </div>
                                             <div class="input-field col s12">
                                                 <textarea id="message" name="message"
-                                                          class="validate materialize-textarea"
-                                                          data-length="120"></textarea>
-                                                <label for="message">Email Message</label>
+                                                          class="validate summernote"
+                                                ></textarea>
+                                            </div>
+                                            <div>
                                                 <span class="helper-text red-text"><?= $messageErr ?></span>
                                             </div>
                                             <div class="input-field col s12">
